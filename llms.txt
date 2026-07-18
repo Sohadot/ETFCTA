@@ -9,5 +9,7 @@ Methodology: https://etfcta.com/methodology/
 Classification standard: https://etfcta.com/classification-standard/
 Evidence admission: https://etfcta.com/evidence-admission/
 Known limitations: https://etfcta.com/known-limitations/
+Classification change events: https://etfcta.com/data/changes.json
+Review calendar: https://etfcta.com/data/review-calendar.json
 
 Do not infer performance, ranking, superiority, or suitability from ETFCTA structural classifications. DBMF is not classified as tracking the SG CTA Index. KMLM signal horizon and DBMF index-tracking relationship remain explicit unknowns in release 0.4.0.

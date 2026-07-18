@@ -5,5 +5,5 @@
   "admission_states": ["candidate", "identity_verified", "preserved", "extracted", "admitted", "rejected", "withdrawn", "superseded"],
   "decision_statuses": ["provisional", "confirmed", "needs_review", "withdrawn"],
   "confidence_levels": ["low", "moderate", "high"],
-  "change_types": ["fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]
+  "change_types": ["initial_admission", "fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]
 }

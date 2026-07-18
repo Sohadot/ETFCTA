@@ -170,3 +170,16 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `schemas/public-export.schema.json`, `scripts/generate-public-data.mjs`, `validation/public-export-validator.mjs`, `scripts/check-public-exports.mjs`, `data/funds/`
 - **Evidence of implementation:** Two valid public exports, six passing negative leak tests, and green release/link gates.
 - **Supersedes / superseded by:** Closes the deployment blocker identified after DEC-ETFCTA-012 / None
+
+## DEC-ETFCTA-014 — Initialize category memory without invented history
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** The registry had current decisions but no append-only event establishing how those states first entered public memory.
+- **Decision:** Represent each first publication as `initial_admission`, with a null previous state and the admitted decision as the new state.
+- **Rationale:** Initial admission is historically meaningful but must remain distinct from a claim that the fund or its disclosure changed on the admission date.
+- **Alternatives considered:** Leave change history empty; classify admissions as evidence improvements; invent pre-admission states from historical inference.
+- **Consequences:** Eleven admission events establish the baseline for future fund, disclosure, evidence, rule, and correction events. Public pages state that no post-admission change exists yet.
+- **Affected files:** `data/registry.json`, `schemas/change.schema.json`, `spec/vocabularies.json`, `reference/ontology.json`, `changes/`, `review-calendar/`, `funds/*/changes/`, `data/changes.json`
+- **Evidence of implementation:** Green append-only validation, negative admission-history test, public export boundary, and 21-route link gate.
+- **Supersedes / superseded by:** Begins Sprint 2 category memory after DEC-ETFCTA-013 / None

@@ -8,6 +8,7 @@
   "public_export_boundary":"passed",
   "code_deployment_ready":true,
   "domain_runtime_verified":false,
+  "sprint_2_status":"category_memory_published",
   "production_admission_authorized":true,
   "next_sprint":"post_Sprint_1",
   "next_sprint_unlocked_when":"All checks pass for the canonical fund admission fixture and no prohibited placeholder facts exist."

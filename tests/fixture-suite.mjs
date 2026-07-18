@@ -24,6 +24,7 @@ export async function runFixtureSuite(context, root) {
     ,['required second review incomplete', 'decision_roles', (r) => { r.decisions[0].workflow.second_review_required=true; }]
     ,['unsupported SG CTA tracking result', 'benchmark_claim_guard', (r) => { r.decisions[0].result='tracks_sg_cta_index'; }]
     ,['unsupported swap-only route', 'implementation_route_guard', (r) => { r.decisions[0].result='swaps_only'; }]
+    ,['initial admission with prior state', 'append_only_change', (r) => { const item=clone(correction); item.change_type='initial_admission'; item.previous_value='single_asset_family'; item.previous_decision_id='DEC-TEST-MB-001'; delete item.correction_metadata; r.changes.push(item); }]
   ];
   const results = cases.map(([name, expectedCheck, mutate]) => {
     const registry=clone(valid); mutate(registry); const report=run(registry);

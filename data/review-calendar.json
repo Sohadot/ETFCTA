@@ -1,0 +1,36 @@
+{
+  "projection_schema": "ETFCTA-PUBLIC-REVIEW-CALENDAR-001-v0.1.0",
+  "release": "0.4.0",
+  "generated_from": "registry.json",
+  "reviews": [
+    {
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "ticker": "KMLM",
+      "last_reviewed": "2026-07-18",
+      "review_due": "2027-07-18",
+      "freshness_state": "within_review_window",
+      "decision_ids": [
+        "DEC-KMLM-SF-001",
+        "DEC-KMLM-MB-001",
+        "DEC-KMLM-IR-001",
+        "DEC-KMLM-DF-001",
+        "DEC-KMLM-SH-001"
+      ]
+    },
+    {
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "ticker": "DBMF",
+      "last_reviewed": "2026-07-18",
+      "review_due": "2027-07-18",
+      "freshness_state": "within_review_window",
+      "decision_ids": [
+        "DEC-DBMF-RM-001",
+        "DEC-DBMF-AM-001",
+        "DEC-DBMF-MB-001",
+        "DEC-DBMF-IR-001",
+        "DEC-DBMF-BR-001",
+        "DEC-DBMF-DF-001"
+      ]
+    }
+  ]
+}

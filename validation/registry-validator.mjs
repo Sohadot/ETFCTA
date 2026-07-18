@@ -115,6 +115,7 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
     push(checks, 'append_only_change', change.previous_value !== change.new_value || change.previous_decision_id !== change.new_decision_id, `${change.event_id}: no material transition.`);
     push(checks, 'append_only_change', change.change_type !== 'correction' || Boolean(change.previous_decision_id), `${change.event_id}: correction requires previous decision.`);
     push(checks, 'append_only_change', change.change_type !== 'correction' || Boolean(change.correction_metadata), `${change.event_id}: correction metadata is required.`);
+    push(checks, 'append_only_change', change.change_type !== 'initial_admission' || change.previous_value === null && change.previous_decision_id === null && Boolean(change.new_value && change.new_decision_id), `${change.event_id}: initial admission must begin from a null state.`);
   }
   checks.canonical_fixture.passed = fixturePassed; if (!fixturePassed) checks.canonical_fixture.errors.push('Canonical synthetic fixture did not pass.');
   checks.negative_tests.passed = negativeTestsPassed; if (!negativeTestsPassed) checks.negative_tests.errors.push('Negative test suite did not pass.');

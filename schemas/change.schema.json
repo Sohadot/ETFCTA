@@ -15,7 +15,7 @@
     "new_value": {"type": ["string", "null"]},
     "previous_decision_id":{"type":["string","null"],"pattern":"^DEC-[A-Z0-9-]+$"},
     "new_decision_id":{"type":["string","null"],"pattern":"^DEC-[A-Z0-9-]+$"},
-    "change_type": {"enum": ["fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]},
+    "change_type": {"enum": ["initial_admission", "fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]},
     "trigger": {"type": "string", "minLength": 1},
     "source_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},
     "standard_version": {"type": "string", "pattern": "^ECS-001-v\\d+\\.\\d+\\.\\d+$"}

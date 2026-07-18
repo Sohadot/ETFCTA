@@ -739,5 +739,110 @@
         "second_review_completed": false
       }
     }
+  ],
+  "changes": [
+    {
+      "event_id": "CHG-DBMF-ADMISSION-006",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:07:00Z",
+      "dimension": "replication_method",
+      "previous_value": null,
+      "new_value": "managed_futures_replication",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-RM-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    },
+    {
+      "event_id": "CHG-DBMF-ADMISSION-007",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:08:00Z",
+      "dimension": "management_mode",
+      "previous_value": null,
+      "new_value": "active_management",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-AM-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    },
+    {
+      "event_id": "CHG-DBMF-ADMISSION-008",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:09:00Z",
+      "dimension": "market_breadth",
+      "previous_value": null,
+      "new_value": "multi_asset",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-MB-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    },
+    {
+      "event_id": "CHG-DBMF-ADMISSION-009",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:10:00Z",
+      "dimension": "implementation_route",
+      "previous_value": null,
+      "new_value": "mixed_derivatives_with_commodity_subsidiary",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-IR-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429",
+        "SRC-DBMF-SAI-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    },
+    {
+      "event_id": "CHG-DBMF-ADMISSION-010",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:11:00Z",
+      "dimension": "benchmark_relationship",
+      "previous_value": null,
+      "new_value": "not_determinable_as_index_tracking",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-BR-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    },
+    {
+      "event_id": "CHG-DBMF-ADMISSION-011",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "effective_date": "2026-07-18",
+      "recorded_at": "2026-07-18T14:12:00Z",
+      "dimension": "directional_flexibility",
+      "previous_value": null,
+      "new_value": "long_short",
+      "previous_decision_id": null,
+      "new_decision_id": "DEC-DBMF-DF-001",
+      "change_type": "initial_admission",
+      "trigger": "canonical_fund_admission",
+      "source_ids": [
+        "SRC-DBMF-PROSPECTUS-20250429"
+      ],
+      "standard_version": "ECS-001-v0.1.0"
+    }
   ]
 }

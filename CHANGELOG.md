@@ -1,5 +1,14 @@
 # Changelog
 
+## Sprint 2 — Category Memory — 2026-07-18
+
+- Added eleven append-only `initial_admission` events covering the current KMLM and DBMF dimensions.
+- Added public change-event and review-calendar exports derived from the canonical registry.
+- Published the classification memory hub, per-fund timelines, and review calendar.
+- Added one negative test preventing initial-admission events from claiming a prior published state.
+- Added a live activity section while preserving zero post-admission changes and zero corrections.
+- Separated site release 1.1.0 from data release 0.4.0.
+
 ## Public Export Boundary — 2026-07-18
 
 - Added the versioned `ETFCTA-PUBLIC-EXPORT-001-v0.1.0` projection schema.
