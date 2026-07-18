@@ -1,7 +1,7 @@
 {
   "site_release": "1.5.0",
   "data_release": "0.4.0",
-  "subject_commit_sha": "91605f9ad92e097d07a5d61e050ea5d15ab689a2",
+  "subject_commit_sha": "84da79a27c7359600d48f26874a9d30784f41804",
   "attestation_commit_sha": null,
   "gal_contract": "GAL-001-v0.1.0",
   "checker_version": "0.1.0",
@@ -15,7 +15,7 @@
     "security_standard": "SSS-001-v0.1.0",
     "release_standard": "RGS-001-v0.1.0"
   },
-  "attested_at": "2026-07-18T17:06:46.900Z",
+  "attested_at": "2026-07-18T17:07:44.986Z",
   "gate_results": {
     "content_governance": "pass",
     "reference_integrity": "pass",
@@ -30,14 +30,14 @@
   "blocking_violations": 0,
   "artifact_hash_algorithm": "sha256",
   "artifact_hashes": {
-    "content_governance": "60f04c42077fea60e4cff10615d4d679b168ba051b8b6db6f8fb6e05035dec32",
-    "reference_integrity": "0c3c7379cc936e9997db9af810d7d8ff47a90f68d328e5a4800b07f36b1b7273",
-    "knowledge_consistency": "0316dbf9e4c2541d1ae61993e21bcbfac7ef775fb36d64b6cfeed9c041c16a1a",
-    "evidence_governance": "08fa7925584dc3059a3e7896f1f6b4014517dbb81430a1acce47fe6178306761",
-    "ontology_governance": "959714d4b7eafdff87571efc7c6983d47a66cc6f07a8fc82fc826c8b6faca1a5",
-    "editorial_governance": "3c7631d50cba282b46d5a29058f4e530fb916235b6ad9ae72d7db2a360eb4beb",
-    "technical_quality": "b496f6add38e9f741f3d050166c54275db34024aa4a91c9c53166e677ba5875c",
-    "security_supply_chain": "d3328d03d71a0e3f0a319c5749c1334d45e11bc38160c37369c7a461ee91a013"
+    "content_governance": "d1f75dc40bec6958b2938f3de83f0f3f1236eabecdee1ac0a27ed7841904d7b6",
+    "reference_integrity": "1440cd0e8cf22b52b2d4ea9611363ef5121235befeb894855d4acd4b86d4fcc8",
+    "knowledge_consistency": "896480740723b279b17d15cba1f14796f9283eb79b52f421be4309b37435435a",
+    "evidence_governance": "b427b2f8fe26447e0481a00ded22d6a4c92d7d6674c1c8cedfdeb829b6541cb7",
+    "ontology_governance": "2c771fbe6838d65a9785ed2096389b8aa95c6dad42b92f11590ba12975f9e622",
+    "editorial_governance": "3779925241a6df998da632689e41465f9a40c79afb181a30a762bf95e749a6b1",
+    "technical_quality": "b0877ccc28526e9aed47e2182676c2c59575aa88a612542c14fc8077b03b9640",
+    "security_supply_chain": "e97f0cfa3240fd069eee5a5b0db706176d98fb525b2dd721f7bb801b173cfb09"
   },
   "integrity_manifest_sha256": "67bd21d503ab95490298fa278cc927c6ee091a84ad187f4bba9ca11a8c0e6385",
   "external_link_summary": {
