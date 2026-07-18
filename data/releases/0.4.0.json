@@ -1,0 +1,19 @@
+{
+  "registry_id": "ETFCTA",
+  "release": "0.4.0",
+  "release_date": "2026-07-18",
+  "classification_standard": "ECS-001",
+  "classification_version": "0.1.0",
+  "fund_ids": [
+    "ETFCTA-FUND-US-KMLM",
+    "ETFCTA-FUND-US-DBMF"
+  ],
+  "counts": {
+    "funds": 2,
+    "sources": 10,
+    "evidence": 13,
+    "decisions": 11,
+    "changes": 0
+  },
+  "canonical_registry": "../registry.json"
+}

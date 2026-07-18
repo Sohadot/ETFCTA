@@ -1,5 +1,14 @@
 # Changelog
 
+## Public Reference Surface — 2026-07-18
+
+- Added an indexable registry hub for the two governed funds.
+- Published methodology, classification, evidence-admission, independence, and limitations routes.
+- Published five bounded reference-language routes grounded in KMLM and DBMF decisions.
+- Added the first structure-only comparison with an explicit non-superiority and non-suitability boundary.
+- Added canonical metadata, Open Graph metadata, structured data, sitemap, robots policy, route manifest, and a broken-link gate.
+- Added generated per-fund and release JSON surfaces while retaining `data/registry.json` as the single canonical source.
+
 ## 0.4.0 — 2026-07-18
 
 - Admitted DBMF independently as the adversarial second-fund test.

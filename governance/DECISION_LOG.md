@@ -144,3 +144,16 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `data/registry.json`, `sources/DBMF/`, `funds/dbmf/`, `protocol/rules.json`, `validation/registry-validator.mjs`
 - **Evidence of implementation:** Release 0.4.0 gate and negative tests.
 - **Supersedes / superseded by:** Completes Sprint 0D / None
+
+## DEC-ETFCTA-012 — Publish the public reference surface
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Two materially different fund admissions proved ECS generalization; isolated files were no longer an adequate discovery surface.
+- **Decision:** Publish Sprint 1 as a static, indexable, agent-readable reference surface without expanding the fund registry.
+- **Rationale:** Researchers need navigable methodology, reference language, per-fund data, and traceable structural comparison while the governed registry remains the sole factual authority.
+- **Alternatives considered:** Add a third fund; broad programmatic SEO; performance comparison; migrate canonical data into many independently edited files.
+- **Consequences:** The site exposes 17 governed routes, generated fund/release JSON, sitemap and metadata, and a broken-link gate. Comparison remains structural only.
+- **Affected files:** `registry/`, `methodology/`, `classification-standard/`, `evidence-admission/`, `independence/`, `known-limitations/`, `reference/`, `compare/`, `data/funds/`, `data/releases/`, `route-manifest.json`
+- **Evidence of implementation:** Green release validation, fourteen negative tests, and the 17-route broken-link gate.
+- **Supersedes / superseded by:** Opens the public reference phase after DEC-ETFCTA-011 / None

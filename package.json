@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "node scripts/test.mjs",
-    "validate": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/check-links.mjs",
+    "generate:data": "node scripts/generate-public-data.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "check:commit": "node scripts/validate-commit-message.mjs"
   }
 }
