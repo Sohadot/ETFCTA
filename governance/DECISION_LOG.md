@@ -131,3 +131,16 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `data/registry.json`, `sources/KMLM/source-pack.json`, `funds/kmlm/`, `protocol/rules.json`, `protocol/release-gate.json`
 - **Evidence of implementation:** Release 0.3.0 gate and negative test suite.
 - **Supersedes / superseded by:** Completes the admission opened by DEC-ETFCTA-009 / None
+
+## DEC-ETFCTA-011 — Sprint 0D adversarial DBMF admission
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** KMLM proved the clean index-based path; ECS next required a materially different active replication strategy.
+- **Decision:** Admit DBMF independently as the second and final fund in release 0.4.0.
+- **Rationale:** Primary documents support active managed-futures replication, broad long/short derivatives, and a commodity subsidiary while leaving index-tracking status explicitly undetermined.
+- **Alternatives considered:** Treat DBMF as tracking the SG CTA Index; reduce implementation to swaps; add a comparison page or broader import.
+- **Consequences:** Registry scope is exactly KMLM plus DBMF. Unsupported benchmark and implementation shortcuts are validator-prohibited.
+- **Affected files:** `data/registry.json`, `sources/DBMF/`, `funds/dbmf/`, `protocol/rules.json`, `validation/registry-validator.mjs`
+- **Evidence of implementation:** Release 0.4.0 gate and negative tests.
+- **Supersedes / superseded by:** Completes Sprint 0D / None

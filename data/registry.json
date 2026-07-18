@@ -1,29 +1,1408 @@
 {
-  "registry_id":"ETFCTA","release":"0.3.0","release_date":"2026-07-18","classification_standard":"ECS-001","classification_version":"0.1.0","evidence_protocol":"EAP-001","evidence_protocol_version":"0.1.0","schema_version":"0.3.0","validator_version":"0.3.0",
-  "funds":[{
-    "record_id":"ETFCTA-FUND-US-KMLM","ticker":"KMLM","legal_name":"KraneShares Mount Lucas Managed Futures Index Strategy ETF","issuer":"KraneShares Trust","inception_date":"2020-12-01","jurisdiction":"US","exchange":"NYSE Arca","identifiers":{"cusip":"500767652","isin":"US5007676522","sec_series":"S000070143","sec_class":"C000223083"},"identity_source_ids":["SRC-KMLM-FUND-PAGE-20260718","SRC-KMLM-SEC-METADATA-20260220"],"classification_standard":"ECS-001","classification_version":"0.1.0","last_reviewed":"2026-07-18","next_review_due":"2027-07-18","freshness_state":"within_review_window",
-    "dimensions":{"strategy_family":{"value":"explicit_trend_following","decision_id":"DEC-KMLM-SF-001","knowledge_state":"derived_ecs"},"market_breadth":{"value":"multi_asset","decision_id":"DEC-KMLM-MB-001","knowledge_state":"derived_ecs"},"implementation_route":{"value":"direct_futures_with_commodity_subsidiary","decision_id":"DEC-KMLM-IR-001","knowledge_state":"derived_ecs"},"directional_flexibility":{"value":"long_short","decision_id":"DEC-KMLM-DF-001","knowledge_state":"derived_ecs"},"signal_horizon":{"value":"not_determinable_from_reviewed_sources","decision_id":"DEC-KMLM-SH-001","knowledge_state":"not_disclosed"}}
-  }],
-  "sources":[
-    {"source_id":"SRC-KMLM-PROSPECTUS-20260625","source_type":"primary_fund_document","title":"KraneShares Trust Statutory Prospectus","issuer":"KraneShares Trust","authority":"KraneShares","effective_date":"2026-06-25","retrieved_at":"2026-07-18","document_sha256":"8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4","verification_status":"verified","locator":{"url":"https://kraneshares.com/resources/compliance/2026_06_25_kraneshares_statutory.prospectus.pdf","fund_section":"KMLM fund summary and KFA MLM Index description"},"preservation":{"status":"preserved","document_sha256":"8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4","preservation_locator":"sha256:8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4"}},
-    {"source_id":"SRC-KMLM-SAI-20260625","source_type":"primary_fund_document","title":"KraneShares Trust Statement of Additional Information","issuer":"KraneShares Trust","authority":"KraneShares","effective_date":"2026-06-25","retrieved_at":"2026-07-18","document_sha256":"c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f","verification_status":"verified","locator":{"url":"https://kraneshares.com/resources/compliance/2026_06_25_kraneshares_SAI.pdf","section":"Subsidiary investment structure"},"preservation":{"status":"preserved","document_sha256":"c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f","preservation_locator":"sha256:c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f"}},
-    {"source_id":"SRC-KMLM-FUND-PAGE-20260718","source_type":"issuer_fund_page","title":"KMLM official fund page","issuer":"KraneShares Trust","authority":"KraneShares","retrieved_at":"2026-07-18","document_sha256":"71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08","verification_status":"verified","locator":{"url":"https://kraneshares.com/etf/kmlm/"},"preservation":{"status":"preserved","document_sha256":"71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08","preservation_locator":"sha256:71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08"}},
-    {"source_id":"SRC-KMLM-HOLDINGS-20260717","source_type":"official_holdings_csv","title":"KMLM official holdings CSV","issuer":"KraneShares Trust","authority":"KraneShares","effective_date":"2026-07-17","retrieved_at":"2026-07-18","document_sha256":"ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224","verification_status":"verified","locator":{"url":"https://kraneshares.com/csv/07_17_2026_kmlm_holdings.csv"},"preservation":{"status":"preserved","document_sha256":"ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224","preservation_locator":"sha256:ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224"}},
-    {"source_id":"SRC-KMLM-SEC-METADATA-20260220","source_type":"sec_filing_metadata","title":"KraneShares Trust definitive materials filing metadata","authority":"U.S. Securities and Exchange Commission","effective_date":"2026-02-20","retrieved_at":"2026-07-18","filing_form":"497","accession_number":"0001829126-26-001868","verification_status":"verified","locator":{"url":"https://www.sec.gov/Archives/edgar/data/1547576/000182912626001868/0001829126-26-001868-index.htm","series":"S000070143","class":"C000223083"},"preservation":{"status":"preservation_unavailable","document_sha256":null,"limitation":"SEC metadata was verified at its stable EDGAR locator; automated byte preservation was rate-limited during admission."}}
+  "registry_id": "ETFCTA",
+  "release": "0.4.0",
+  "release_date": "2026-07-18",
+  "classification_standard": "ECS-001",
+  "classification_version": "0.1.0",
+  "evidence_protocol": "EAP-001",
+  "evidence_protocol_version": "0.1.0",
+  "schema_version": "0.4.0",
+  "validator_version": "0.4.0",
+  "funds": [
+    {
+      "record_id": "ETFCTA-FUND-US-KMLM",
+      "ticker": "KMLM",
+      "legal_name": "KraneShares Mount Lucas Managed Futures Index Strategy ETF",
+      "issuer": "KraneShares Trust",
+      "inception_date": "2020-12-01",
+      "jurisdiction": "US",
+      "exchange": "NYSE Arca",
+      "identifiers": {
+        "cusip": "500767652",
+        "isin": "US5007676522",
+        "sec_series": "S000070143",
+        "sec_class": "C000223083"
+      },
+      "identity_source_ids": [
+        "SRC-KMLM-FUND-PAGE-20260718",
+        "SRC-KMLM-SEC-METADATA-20260220"
+      ],
+      "classification_standard": "ECS-001",
+      "classification_version": "0.1.0",
+      "last_reviewed": "2026-07-18",
+      "next_review_due": "2027-07-18",
+      "freshness_state": "within_review_window",
+      "dimensions": {
+        "strategy_family": {
+          "value": "explicit_trend_following",
+          "decision_id": "DEC-KMLM-SF-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "market_breadth": {
+          "value": "multi_asset",
+          "decision_id": "DEC-KMLM-MB-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "implementation_route": {
+          "value": "direct_futures_with_commodity_subsidiary",
+          "decision_id": "DEC-KMLM-IR-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "directional_flexibility": {
+          "value": "long_short",
+          "decision_id": "DEC-KMLM-DF-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "signal_horizon": {
+          "value": "not_determinable_from_reviewed_sources",
+          "decision_id": "DEC-KMLM-SH-001",
+          "knowledge_state": "not_disclosed"
+        }
+      }
+    },
+    {
+      "record_id": "ETFCTA-FUND-US-DBMF",
+      "ticker": "DBMF",
+      "legal_name": "iMGP DBi Managed Futures Strategy ETF",
+      "issuer": "Litman Gregory Funds Trust",
+      "inception_date": "2019-05-07",
+      "jurisdiction": "US",
+      "exchange": "NYSE Arca",
+      "identifiers": {
+        "cusip": "53700T827",
+        "isin": "US53700T8273",
+        "sec_series": "S000072813",
+        "sec_class": "C000229357"
+      },
+      "identity_source_ids": [
+        "SRC-DBMF-FUND-PAGE-20260718",
+        "SRC-DBMF-SEC-485BPOS-202606"
+      ],
+      "classification_standard": "ECS-001",
+      "classification_version": "0.1.0",
+      "last_reviewed": "2026-07-18",
+      "next_review_due": "2027-07-18",
+      "freshness_state": "within_review_window",
+      "dimensions": {
+        "replication_method": {
+          "value": "managed_futures_replication",
+          "decision_id": "DEC-DBMF-RM-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "management_mode": {
+          "value": "active_management",
+          "decision_id": "DEC-DBMF-AM-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "market_breadth": {
+          "value": "multi_asset",
+          "decision_id": "DEC-DBMF-MB-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "implementation_route": {
+          "value": "mixed_derivatives_with_commodity_subsidiary",
+          "decision_id": "DEC-DBMF-IR-001",
+          "knowledge_state": "derived_ecs"
+        },
+        "benchmark_relationship": {
+          "value": "not_determinable_as_index_tracking",
+          "decision_id": "DEC-DBMF-BR-001",
+          "knowledge_state": "not_disclosed"
+        },
+        "directional_flexibility": {
+          "value": "long_short",
+          "decision_id": "DEC-DBMF-DF-001",
+          "knowledge_state": "derived_ecs"
+        }
+      }
+    }
   ],
-  "evidence":[
-    {"evidence_id":"EVD-KMLM-SF-001","source_id":"SRC-KMLM-PROSPECTUS-20260625","location":{"section":"KMLM Principal Investment Strategies","topic":"KFA MLM Index methodology"},"evidence_summary":"The prospectus identifies the underlying index methodology as trend following across commodities, currencies, and global fixed income.","supports":["ECS-SF-R01"],"status":"direct_source","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:00:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:01:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:02:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:03:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:04:00Z"}]}},
-    {"evidence_id":"EVD-KMLM-MB-001","source_id":"SRC-KMLM-PROSPECTUS-20260625","location":{"section":"KMLM Principal Investment Strategies","topic":"eligible futures markets"},"evidence_summary":"The disclosed futures universe spans commodities, currencies, and global fixed income, satisfying the governed multi-asset threshold.","supports":["ECS-MB-R02"],"status":"direct_source","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:05:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:06:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:07:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:08:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:09:00Z"}]}},
-    {"evidence_id":"EVD-KMLM-IR-001","source_id":"SRC-KMLM-PROSPECTUS-20260625","location":{"section":"KMLM Principal Investment Strategies","topic":"futures and subsidiary implementation"},"evidence_summary":"The fund discloses futures implementation and use of a wholly owned Cayman subsidiary for commodity futures exposure.","supports":["ECS-IR-R03"],"status":"direct_source","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:10:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:11:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:12:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:13:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:14:00Z"}]}},
-    {"evidence_id":"EVD-KMLM-IR-002","source_id":"SRC-KMLM-SAI-20260625","location":{"section":"Investment through Subsidiaries","topic":"KMLM subsidiary mandate and ownership"},"evidence_summary":"The SAI corroborates the wholly owned subsidiary structure and its commodity and financial derivatives mandate.","supports":["ECS-IR-R03"],"status":"corroborating_source","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:15:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:16:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:17:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:18:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:19:00Z"}]}},
-    {"evidence_id":"EVD-KMLM-DF-001","source_id":"SRC-KMLM-PROSPECTUS-20260625","location":{"section":"KMLM Principal Investment Strategies","topic":"long and short signals"},"evidence_summary":"The index description states that trading signals determine long or short positions in eligible futures markets.","supports":["ECS-DF-R01"],"status":"direct_source","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:20:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:21:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:22:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:23:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:24:00Z"}]}},
-    {"evidence_id":"EVD-KMLM-SH-001","source_id":"SRC-KMLM-PROSPECTUS-20260625","location":{"section":"KMLM Principal Investment Strategies and KFA MLM Index description","review_scope":"signal construction disclosures"},"evidence_summary":"The reviewed disclosure states daily signal evaluation and monthly rebalancing but does not disclose a signal lookback horizon; those frequencies are not treated as the horizon.","supports":["ECS-SH-R00"],"status":"insufficient","admission":{"state":"admitted","protocol_version":"EAP-001-v0.1.0","history":[{"state":"candidate","recorded_at":"2026-07-18T09:25:00Z"},{"state":"identity_verified","recorded_at":"2026-07-18T09:26:00Z"},{"state":"preserved","recorded_at":"2026-07-18T09:27:00Z"},{"state":"extracted","recorded_at":"2026-07-18T09:28:00Z"},{"state":"admitted","recorded_at":"2026-07-18T09:29:00Z","note":"Admitted as bounded evidence of non-disclosure, not as evidence of a horizon value."}]}}
+  "sources": [
+    {
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "source_type": "primary_fund_document",
+      "title": "KraneShares Trust Statutory Prospectus",
+      "issuer": "KraneShares Trust",
+      "authority": "KraneShares",
+      "effective_date": "2026-06-25",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://kraneshares.com/resources/compliance/2026_06_25_kraneshares_statutory.prospectus.pdf",
+        "fund_section": "KMLM fund summary and KFA MLM Index description"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4",
+        "preservation_locator": "sha256:8d0332b2214feac8221e9465f569fe99aa670262dc9e858f03b210002cbc1cd4"
+      }
+    },
+    {
+      "source_id": "SRC-KMLM-SAI-20260625",
+      "source_type": "primary_fund_document",
+      "title": "KraneShares Trust Statement of Additional Information",
+      "issuer": "KraneShares Trust",
+      "authority": "KraneShares",
+      "effective_date": "2026-06-25",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://kraneshares.com/resources/compliance/2026_06_25_kraneshares_SAI.pdf",
+        "section": "Subsidiary investment structure"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f",
+        "preservation_locator": "sha256:c5d5fd75c503fd278655d54f1db22b7c13c3f2ddb6e800411847649063f63a6f"
+      }
+    },
+    {
+      "source_id": "SRC-KMLM-FUND-PAGE-20260718",
+      "source_type": "issuer_fund_page",
+      "title": "KMLM official fund page",
+      "issuer": "KraneShares Trust",
+      "authority": "KraneShares",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://kraneshares.com/etf/kmlm/"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08",
+        "preservation_locator": "sha256:71ccaf8385f78354159eac9d04f1f42e89525c5f78c2ee362ac49f1ba5c88b08"
+      }
+    },
+    {
+      "source_id": "SRC-KMLM-HOLDINGS-20260717",
+      "source_type": "official_holdings_csv",
+      "title": "KMLM official holdings CSV",
+      "issuer": "KraneShares Trust",
+      "authority": "KraneShares",
+      "effective_date": "2026-07-17",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://kraneshares.com/csv/07_17_2026_kmlm_holdings.csv"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224",
+        "preservation_locator": "sha256:ff99abea531d396c9a0e9928e448f21a1223881f1596d0cb771e4d8d45f70224"
+      }
+    },
+    {
+      "source_id": "SRC-KMLM-SEC-METADATA-20260220",
+      "source_type": "sec_filing_metadata",
+      "title": "KraneShares Trust definitive materials filing metadata",
+      "authority": "U.S. Securities and Exchange Commission",
+      "effective_date": "2026-02-20",
+      "retrieved_at": "2026-07-18",
+      "filing_form": "497",
+      "accession_number": "0001829126-26-001868",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626001868/0001829126-26-001868-index.htm",
+        "series": "S000070143",
+        "class": "C000223083"
+      },
+      "preservation": {
+        "status": "preservation_unavailable",
+        "document_sha256": null,
+        "limitation": "SEC metadata was verified at its stable EDGAR locator; automated byte preservation was rate-limited during admission."
+      }
+    },
+    {
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "source_type": "primary_fund_document",
+      "title": "iMGP DBi Managed Futures Strategy ETF Prospectus",
+      "issuer": "Litman Gregory Funds Trust",
+      "authority": "iMGP Funds",
+      "effective_date": "2025-04-29",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "50fa73a96820964b5975efe064d57cb245b23eeb8c2655e18eb2be3617e6325c",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://imgpfunds.com/wp-content/uploads/pdfs/forms-and-documents/DBMF-Prospectus.pdf",
+        "section": "Principal Investment Strategies"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "50fa73a96820964b5975efe064d57cb245b23eeb8c2655e18eb2be3617e6325c",
+        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src0"
+      }
+    },
+    {
+      "source_id": "SRC-DBMF-SAI-20250429",
+      "source_type": "primary_fund_document",
+      "title": "iMGP Funds Statement of Additional Information",
+      "issuer": "Litman Gregory Funds Trust",
+      "authority": "iMGP Funds",
+      "effective_date": "2025-04-29",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "ec4edf7966591a272ad37c944793331ebc120d95ab3097a320ded0456919848c",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://imgpfunds.com/wp-content/uploads/pdfs/forms-and-documents/DBMF-SAI.pdf",
+        "section": "DBMF subsidiary and derivatives disclosures"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "ec4edf7966591a272ad37c944793331ebc120d95ab3097a320ded0456919848c",
+        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src1"
+      }
+    },
+    {
+      "source_id": "SRC-DBMF-FACTSHEET-202604",
+      "source_type": "issuer_fund_page",
+      "title": "DBMF official fact sheet",
+      "issuer": "Litman Gregory Funds Trust",
+      "authority": "iMGP Funds",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "0e768ec24a8fa93d0f96f7288b710f3f2b9581faee39c5d521e7e95ba613e832",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://www.imgp.com/wp-content/uploads/2026/04/DBMF_FACTSHEET_EN.pdf"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "0e768ec24a8fa93d0f96f7288b710f3f2b9581faee39c5d521e7e95ba613e832",
+        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src2"
+      }
+    },
+    {
+      "source_id": "SRC-DBMF-FUND-PAGE-20260718",
+      "source_type": "issuer_fund_page",
+      "title": "DBMF official fund page",
+      "issuer": "Litman Gregory Funds Trust",
+      "authority": "iM Global Partner",
+      "retrieved_at": "2026-07-18",
+      "document_sha256": "ea289386d91ecfe3caaea81a4c27e2a3728c31e90dfbd909effa4f53bd22b238",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://www.imgp.com/dbmf-etf/"
+      },
+      "preservation": {
+        "status": "preserved",
+        "document_sha256": "ea289386d91ecfe3caaea81a4c27e2a3728c31e90dfbd909effa4f53bd22b238",
+        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src3"
+      }
+    },
+    {
+      "source_id": "SRC-DBMF-SEC-485BPOS-202606",
+      "source_type": "sec_filing_metadata",
+      "title": "Litman Gregory Funds Trust Form 485BPOS",
+      "authority": "U.S. Securities and Exchange Commission",
+      "effective_date": "2026-06-01",
+      "retrieved_at": "2026-07-18",
+      "filing_form": "485BPOS",
+      "accession_number": "0001193125-26-196761",
+      "verification_status": "verified",
+      "locator": {
+        "url": "https://www.sec.gov/Archives/edgar/data/1020425/000119312526196761/d44398d485bpos.htm",
+        "series": "S000072813",
+        "class": "C000229357"
+      },
+      "preservation": {
+        "status": "preservation_unavailable",
+        "document_sha256": null,
+        "limitation": "Verified at stable EDGAR locator; no local byte capture used for decision support."
+      }
+    }
   ],
-  "decisions":[
-    {"decision_id":"DEC-KMLM-SF-001","fund_id":"ETFCTA-FUND-US-KMLM","dimension":"strategy_family","result":"explicit_trend_following","rule_id":"ECS-SF-R01","rule_version":"0.1.0","evidence_ids":["EVD-KMLM-SF-001"],"reasoning_summary":"The verified prospectus explicitly identifies a trend-following methodology; ECS-SF-R01 maps that disclosure to the controlled result.","decision_status":"confirmed","confidence":"high","sufficiency_result":"pass","limitations":["Classification is structural and makes no performance claim.","Solo-operator review; no independent second reviewer."],"decided_at":"2026-07-18","review_due":"2027-07-18","workflow":{"actions":[{"role":"extractor","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:00:00Z","conflict_status":"none_declared"},{"role":"classifier","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:01:00Z","conflict_status":"none_declared"},{"role":"reviewer","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:02:00Z","conflict_status":"none_declared"},{"role":"publisher","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:03:00Z","conflict_status":"none_declared"}],"solo_operator":true,"second_review_required":false,"second_review_completed":false}},
-    {"decision_id":"DEC-KMLM-MB-001","fund_id":"ETFCTA-FUND-US-KMLM","dimension":"market_breadth","result":"multi_asset","rule_id":"ECS-MB-R02","rule_version":"0.1.0","evidence_ids":["EVD-KMLM-MB-001"],"reasoning_summary":"The verified prospectus names three governed asset families, satisfying ECS-MB-R02.","decision_status":"confirmed","confidence":"high","sufficiency_result":"pass","limitations":["Market breadth is based on the disclosed eligible universe, not a point-in-time holdings inference.","Solo-operator review; no independent second reviewer."],"decided_at":"2026-07-18","review_due":"2027-07-18","workflow":{"actions":[{"role":"extractor","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:04:00Z","conflict_status":"none_declared"},{"role":"classifier","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:05:00Z","conflict_status":"none_declared"},{"role":"reviewer","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:06:00Z","conflict_status":"none_declared"},{"role":"publisher","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:07:00Z","conflict_status":"none_declared"}],"solo_operator":true,"second_review_required":false,"second_review_completed":false}},
-    {"decision_id":"DEC-KMLM-IR-001","fund_id":"ETFCTA-FUND-US-KMLM","dimension":"implementation_route","result":"direct_futures_with_commodity_subsidiary","rule_id":"ECS-IR-R03","rule_version":"0.1.0","evidence_ids":["EVD-KMLM-IR-001","EVD-KMLM-IR-002"],"reasoning_summary":"The prospectus and SAI jointly establish futures implementation by the fund and a wholly owned commodity subsidiary.","decision_status":"confirmed","confidence":"high","sufficiency_result":"pass","limitations":["This result describes the disclosed route and not every permitted derivative.","Solo-operator review; no independent second reviewer."],"decided_at":"2026-07-18","review_due":"2027-07-18","workflow":{"actions":[{"role":"extractor","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:08:00Z","conflict_status":"none_declared"},{"role":"classifier","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:09:00Z","conflict_status":"none_declared"},{"role":"reviewer","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:10:00Z","conflict_status":"none_declared"},{"role":"publisher","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:11:00Z","conflict_status":"none_declared"}],"solo_operator":true,"second_review_required":false,"second_review_completed":false}},
-    {"decision_id":"DEC-KMLM-DF-001","fund_id":"ETFCTA-FUND-US-KMLM","dimension":"directional_flexibility","result":"long_short","rule_id":"ECS-DF-R01","rule_version":"0.1.0","evidence_ids":["EVD-KMLM-DF-001"],"reasoning_summary":"The index description explicitly permits signals to establish long or short futures positions, satisfying ECS-DF-R01.","decision_status":"confirmed","confidence":"high","sufficiency_result":"pass","limitations":["Directional flexibility does not describe current positioning.","Solo-operator review; no independent second reviewer."],"decided_at":"2026-07-18","review_due":"2027-07-18","workflow":{"actions":[{"role":"extractor","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:12:00Z","conflict_status":"none_declared"},{"role":"classifier","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:13:00Z","conflict_status":"none_declared"},{"role":"reviewer","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:14:00Z","conflict_status":"none_declared"},{"role":"publisher","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:15:00Z","conflict_status":"none_declared"}],"solo_operator":true,"second_review_required":false,"second_review_completed":false}},
-    {"decision_id":"DEC-KMLM-SH-001","fund_id":"ETFCTA-FUND-US-KMLM","dimension":"signal_horizon","result":"not_determinable_from_reviewed_sources","rule_id":"ECS-SH-R00","rule_version":"0.1.0","evidence_ids":["EVD-KMLM-SH-001"],"reasoning_summary":"Daily evaluation and monthly rebalancing are disclosed, but the signal lookback horizon is not; ECS-SH-R00 preserves that distinction as an explicit unknown.","decision_status":"confirmed","confidence":"high","sufficiency_result":"pass","limitations":["The result is a bounded non-disclosure finding, not a claim that no horizon exists.","No standalone official index methodology document was located during this admission.","Solo-operator review; no independent second reviewer."],"decided_at":"2026-07-18","review_due":"2027-07-18","workflow":{"actions":[{"role":"extractor","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:16:00Z","conflict_status":"none_declared"},{"role":"classifier","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:17:00Z","conflict_status":"none_declared"},{"role":"reviewer","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:18:00Z","conflict_status":"none_declared"},{"role":"publisher","actor_id":"ACT-ETFCTA-OPERATOR-001","acted_at":"2026-07-18T10:19:00Z","conflict_status":"none_declared"}],"solo_operator":true,"second_review_required":false,"second_review_completed":false}}
-  ],"changes":[]
+  "evidence": [
+    {
+      "evidence_id": "EVD-KMLM-SF-001",
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "location": {
+        "section": "KMLM Principal Investment Strategies",
+        "topic": "KFA MLM Index methodology"
+      },
+      "evidence_summary": "The prospectus identifies the underlying index methodology as trend following across commodities, currencies, and global fixed income.",
+      "supports": [
+        "ECS-SF-R01"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:00:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:01:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:02:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:03:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:04:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-KMLM-MB-001",
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "location": {
+        "section": "KMLM Principal Investment Strategies",
+        "topic": "eligible futures markets"
+      },
+      "evidence_summary": "The disclosed futures universe spans commodities, currencies, and global fixed income, satisfying the governed multi-asset threshold.",
+      "supports": [
+        "ECS-MB-R02"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:05:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:06:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:07:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:08:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:09:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-KMLM-IR-001",
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "location": {
+        "section": "KMLM Principal Investment Strategies",
+        "topic": "futures and subsidiary implementation"
+      },
+      "evidence_summary": "The fund discloses futures implementation and use of a wholly owned Cayman subsidiary for commodity futures exposure.",
+      "supports": [
+        "ECS-IR-R03"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:10:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:11:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:12:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:13:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:14:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-KMLM-IR-002",
+      "source_id": "SRC-KMLM-SAI-20260625",
+      "location": {
+        "section": "Investment through Subsidiaries",
+        "topic": "KMLM subsidiary mandate and ownership"
+      },
+      "evidence_summary": "The SAI corroborates the wholly owned subsidiary structure and its commodity and financial derivatives mandate.",
+      "supports": [
+        "ECS-IR-R03"
+      ],
+      "status": "corroborating_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:15:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:16:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:17:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:18:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:19:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-KMLM-DF-001",
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "location": {
+        "section": "KMLM Principal Investment Strategies",
+        "topic": "long and short signals"
+      },
+      "evidence_summary": "The index description states that trading signals determine long or short positions in eligible futures markets.",
+      "supports": [
+        "ECS-DF-R01"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:20:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:21:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:22:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:23:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:24:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-KMLM-SH-001",
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "location": {
+        "section": "KMLM Principal Investment Strategies and KFA MLM Index description",
+        "review_scope": "signal construction disclosures"
+      },
+      "evidence_summary": "The reviewed disclosure states daily signal evaluation and monthly rebalancing but does not disclose a signal lookback horizon; those frequencies are not treated as the horizon.",
+      "supports": [
+        "ECS-SH-R00"
+      ],
+      "status": "insufficient",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T09:25:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T09:26:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T09:27:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T09:28:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T09:29:00Z",
+            "note": "Admitted as bounded evidence of non-disclosure, not as evidence of a horizon value."
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-RM-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "RM"
+      },
+      "evidence_summary": "The prospectus describes a managed-futures strategy that seeks to replicate the pre-fee performance of a representative basket of leading managed-futures hedge funds using factor analysis.",
+      "supports": [
+        "ECS-RM-R01"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:00:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:01:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:02:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:03:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:04:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-AM-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "AM"
+      },
+      "evidence_summary": "The prospectus explicitly identifies DBMF as an actively managed ETF.",
+      "supports": [
+        "ECS-AM-R01"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:05:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:06:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:07:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:08:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:09:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-MB-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "MB"
+      },
+      "evidence_summary": "The disclosed derivative universe spans equities, fixed income, currencies, and commodities.",
+      "supports": [
+        "ECS-MB-R02"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:10:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:11:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:12:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:13:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:14:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-IR-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "IR"
+      },
+      "evidence_summary": "The fund uses long and short derivatives, primarily futures and forward contracts, and routes commodity exposure through a wholly owned subsidiary.",
+      "supports": [
+        "ECS-IR-R04"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:15:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:16:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:17:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:18:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:19:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-IR-002",
+      "source_id": "SRC-DBMF-SAI-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "IR"
+      },
+      "evidence_summary": "The SAI corroborates the controlled subsidiary and aggregate derivatives structure.",
+      "supports": [
+        "ECS-IR-R04"
+      ],
+      "status": "corroborating_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:20:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:21:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:22:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:23:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:24:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-BR-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "BR"
+      },
+      "evidence_summary": "The reviewed prospectus describes representative-basket replication but does not state that DBMF tracks the SG CTA Index or any named index.",
+      "supports": [
+        "ECS-BR-R00"
+      ],
+      "status": "insufficient",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:25:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:26:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:27:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:28:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:29:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "EVD-DBMF-DF-001",
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "location": {
+        "section": "Principal Investment Strategies",
+        "topic": "DF"
+      },
+      "evidence_summary": "The prospectus explicitly permits both long and short derivative positions.",
+      "supports": [
+        "ECS-DF-R01"
+      ],
+      "status": "direct_source",
+      "admission": {
+        "state": "admitted",
+        "protocol_version": "EAP-001-v0.1.0",
+        "history": [
+          {
+            "state": "candidate",
+            "recorded_at": "2026-07-18T11:30:00Z"
+          },
+          {
+            "state": "identity_verified",
+            "recorded_at": "2026-07-18T11:31:00Z"
+          },
+          {
+            "state": "preserved",
+            "recorded_at": "2026-07-18T11:32:00Z"
+          },
+          {
+            "state": "extracted",
+            "recorded_at": "2026-07-18T11:33:00Z"
+          },
+          {
+            "state": "admitted",
+            "recorded_at": "2026-07-18T11:34:00Z"
+          }
+        ]
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "DEC-KMLM-SF-001",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "strategy_family",
+      "result": "explicit_trend_following",
+      "rule_id": "ECS-SF-R01",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-KMLM-SF-001"
+      ],
+      "reasoning_summary": "The verified prospectus explicitly identifies a trend-following methodology; ECS-SF-R01 maps that disclosure to the controlled result.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Classification is structural and makes no performance claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:00:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:01:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:02:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:03:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-KMLM-MB-001",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "market_breadth",
+      "result": "multi_asset",
+      "rule_id": "ECS-MB-R02",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-KMLM-MB-001"
+      ],
+      "reasoning_summary": "The verified prospectus names three governed asset families, satisfying ECS-MB-R02.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Market breadth is based on the disclosed eligible universe, not a point-in-time holdings inference.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:04:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:05:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:06:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:07:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-KMLM-IR-001",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "implementation_route",
+      "result": "direct_futures_with_commodity_subsidiary",
+      "rule_id": "ECS-IR-R03",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-KMLM-IR-001",
+        "EVD-KMLM-IR-002"
+      ],
+      "reasoning_summary": "The prospectus and SAI jointly establish futures implementation by the fund and a wholly owned commodity subsidiary.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "This result describes the disclosed route and not every permitted derivative.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:08:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:09:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:10:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:11:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-KMLM-DF-001",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "directional_flexibility",
+      "result": "long_short",
+      "rule_id": "ECS-DF-R01",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-KMLM-DF-001"
+      ],
+      "reasoning_summary": "The index description explicitly permits signals to establish long or short futures positions, satisfying ECS-DF-R01.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Directional flexibility does not describe current positioning.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:12:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:13:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:14:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:15:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-KMLM-SH-001",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "signal_horizon",
+      "result": "not_determinable_from_reviewed_sources",
+      "rule_id": "ECS-SH-R00",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-KMLM-SH-001"
+      ],
+      "reasoning_summary": "Daily evaluation and monthly rebalancing are disclosed, but the signal lookback horizon is not; ECS-SH-R00 preserves that distinction as an explicit unknown.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "The result is a bounded non-disclosure finding, not a claim that no horizon exists.",
+        "No standalone official index methodology document was located during this admission.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:16:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:17:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:18:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T10:19:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-RM-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "replication_method",
+      "result": "managed_futures_replication",
+      "rule_id": "ECS-RM-R01",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-RM-001"
+      ],
+      "reasoning_summary": "The primary document supports replication of a representative managed-futures basket; it does not support an index-tracking claim.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "No claim that DBMF tracks the SG CTA Index.",
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:00:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:01:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:02:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:03:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-AM-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "management_mode",
+      "result": "active_management",
+      "rule_id": "ECS-AM-R01",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-AM-001"
+      ],
+      "reasoning_summary": "The prospectus directly identifies the fund as actively managed.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:04:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:05:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:06:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:07:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-MB-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "market_breadth",
+      "result": "multi_asset",
+      "rule_id": "ECS-MB-R02",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-MB-001"
+      ],
+      "reasoning_summary": "Four governed asset families satisfy the multi-asset rule.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:08:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:09:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:10:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:11:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-IR-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "implementation_route",
+      "result": "mixed_derivatives_with_commodity_subsidiary",
+      "rule_id": "ECS-IR-R04",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-IR-001",
+        "EVD-DBMF-IR-002"
+      ],
+      "reasoning_summary": "Prospectus and SAI support futures and forwards with commodity exposure through a controlled subsidiary.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Swaps are not represented as the governing route.",
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:12:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:13:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:14:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:15:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-BR-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "benchmark_relationship",
+      "result": "not_determinable_as_index_tracking",
+      "rule_id": "ECS-BR-R00",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-BR-001"
+      ],
+      "reasoning_summary": "The admission confirms that index-tracking status is not determinable from the reviewed primary disclosure.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Confirmed describes the evidence conclusion, not a known benchmark relationship.",
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:16:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:17:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:18:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:19:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    },
+    {
+      "decision_id": "DEC-DBMF-DF-001",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "directional_flexibility",
+      "result": "long_short",
+      "rule_id": "ECS-DF-R01",
+      "rule_version": "0.1.0",
+      "evidence_ids": [
+        "EVD-DBMF-DF-001"
+      ],
+      "reasoning_summary": "The primary disclosure explicitly supports long and short derivative positions.",
+      "decision_status": "confirmed",
+      "confidence": "high",
+      "sufficiency_result": "pass",
+      "limitations": [
+        "Structural classification only; no performance or relative-quality claim.",
+        "Solo-operator review; no independent second reviewer."
+      ],
+      "decided_at": "2026-07-18",
+      "review_due": "2027-07-18",
+      "workflow": {
+        "actions": [
+          {
+            "role": "extractor",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:20:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "classifier",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:21:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "reviewer",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:22:00Z",
+            "conflict_status": "none_declared"
+          },
+          {
+            "role": "publisher",
+            "actor_id": "ACT-ETFCTA-OPERATOR-001",
+            "acted_at": "2026-07-18T13:23:00Z",
+            "conflict_status": "none_declared"
+          }
+        ],
+        "solo_operator": true,
+        "second_review_required": false,
+        "second_review_completed": false
+      }
+    }
+  ],
+  "changes": []
 }

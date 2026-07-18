@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 — 2026-07-18
+
+- Admitted DBMF independently as the adversarial second-fund test.
+- Added five verified official sources, seven admitted evidence records, six governed decisions, and an explicit unknown benchmark relationship.
+- Added executable guards against unsupported SG CTA Index tracking and swap-only implementation claims.
+- Published one DBMF dossier and one independent evidence trail; no comparison, performance analysis, chart, score, or third fund was added.
+
 ## 0.3.0 — 2026-07-18
 
 - Admitted KMLM as the sole canonical real fund.

@@ -1,0 +1,7 @@
+{
+  "fund_id":"ETFCTA-FUND-US-DBMF",
+  "admission_date":"2026-07-18",
+  "source_ids":["SRC-DBMF-PROSPECTUS-20250429","SRC-DBMF-SAI-20250429","SRC-DBMF-FACTSHEET-202604","SRC-DBMF-FUND-PAGE-20260718","SRC-DBMF-SEC-485BPOS-202606"],
+  "adversarial_boundaries":["No claim that DBMF tracks the SG CTA Index.","No representation of total return swaps as the governing implementation route.","Representative-basket replication is distinct from index tracking."],
+  "canonical_records":"../../data/registry.json"
+}

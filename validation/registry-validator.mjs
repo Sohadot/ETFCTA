@@ -22,7 +22,7 @@ export function deriveSufficiency(decision, registry, rule) {
 
 export function validateRegistry({ registry, schemas, rules, reviewWindows, vocab, ontology, glossary, releaseGate, fixturePassed = false, negativeTestsPassed = false }) {
   const checkNames = releaseGate.required_checks;
-  const implemented = ['canonical_real_admission','schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','decision_roles','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
+  const implemented = ['canonical_real_admission','benchmark_claim_guard','implementation_route_guard','schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','decision_roles','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
   const checks = Object.fromEntries(implemented.map((name) => [name, makeCheck()]));
   const collections = { fund: registry.funds, source: registry.sources, evidence: registry.evidence, decision: registry.decisions, change: registry.changes };
   const idField = { fund:'record_id', source:'source_id', evidence:'evidence_id', decision:'decision_id', change:'event_id' };
@@ -48,11 +48,17 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
 
   const ids = new Map();
   const productionAdmission = registry.registry_id === 'ETFCTA';
-  push(checks, 'canonical_real_admission', !productionAdmission || registry.funds.length === 1 && registry.funds[0]?.ticker === 'KMLM', 'Sprint 0C must publish exactly one real fund: KMLM.');
-  push(checks, 'canonical_real_admission', !productionAdmission || registry.sources.filter((s) => s.verification_status === 'verified').length >= 4, 'KMLM requires at least four verified primary sources.');
-  push(checks, 'canonical_real_admission', !productionAdmission || registry.evidence.filter((e) => e.admission?.state === 'admitted').length >= 5, 'KMLM requires at least five admitted evidence records.');
-  push(checks, 'canonical_real_admission', !productionAdmission || registry.decisions.filter((d) => d.decision_status === 'confirmed').length >= 3, 'KMLM requires at least three confirmed decisions.');
-  push(checks, 'canonical_real_admission', !productionAdmission || registry.funds.some((f) => Object.values(f.dimensions).some((d) => ['not_disclosed','not_applicable'].includes(d.knowledge_state))), 'KMLM requires an explicit unknown state.');
+  push(checks, 'benchmark_claim_guard', !registry.decisions.some((d) => ['sg_cta_index_tracking','tracks_sg_cta_index'].includes(d.result)), 'Unsupported SG CTA Index tracking result is prohibited.');
+  push(checks, 'implementation_route_guard', !registry.decisions.some((d) => ['total_return_swaps','swaps_only'].includes(d.result)), 'Swap-only implementation is not supported by an active governing-route rule.');
+  const dbmf = registry.funds.find((f) => f.ticker === 'DBMF');
+  const dbmfEvidence = registry.evidence.filter((e) => e.evidence_id.startsWith('EVD-DBMF-'));
+  const dbmfDecisions = registry.decisions.filter((d) => d.fund_id === dbmf?.record_id);
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.funds.length === 2 && registry.funds.some((f) => f.ticker === 'KMLM') && dbmf, 'Sprint 0D must publish exactly KMLM and DBMF.');
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.sources.filter((s) => s.source_id.startsWith('SRC-DBMF-') && s.verification_status === 'verified').length >= 4, 'DBMF requires at least four verified primary sources.');
+  push(checks, 'canonical_real_admission', !productionAdmission || dbmfEvidence.filter((e) => e.admission?.state === 'admitted').length >= 5, 'DBMF requires at least five admitted evidence records.');
+  push(checks, 'canonical_real_admission', !productionAdmission || dbmfDecisions.filter((d) => ['confirmed','provisional'].includes(d.decision_status)).length >= 3, 'DBMF requires at least three governed decisions.');
+  push(checks, 'canonical_real_admission', !productionAdmission || Object.values(dbmf?.dimensions ?? {}).some((d) => ['not_disclosed','not_applicable','conflicting_evidence'].includes(d.knowledge_state)), 'DBMF requires an explicit unknown or conflict state.');
+  push(checks, 'canonical_real_admission', !productionAdmission || !dbmfDecisions.some((d) => ['sg_cta_index_tracking','tracks_sg_cta_index'].includes(d.result)), 'Unsupported SG CTA Index tracking result is prohibited.');
   for (const [kind, records] of Object.entries(collections)) for (const record of records ?? []) {
     const id = record[idField[kind]];
     push(checks, 'unique_ids', Boolean(id) && !ids.has(id), `Duplicate or missing ${kind} ID: ${id ?? '(missing)'}.`); ids.set(id, kind);

@@ -22,6 +22,8 @@ export async function runFixtureSuite(context, root) {
     ,['malformed identifier', 'schema_validity', (r) => { r.evidence[0].evidence_id='bad id'; }]
     ,['missing reviewer role', 'decision_roles', (r) => { r.decisions[0].workflow.actions=r.decisions[0].workflow.actions.filter((action)=>action.role!=='reviewer'); }]
     ,['required second review incomplete', 'decision_roles', (r) => { r.decisions[0].workflow.second_review_required=true; }]
+    ,['unsupported SG CTA tracking result', 'benchmark_claim_guard', (r) => { r.decisions[0].result='tracks_sg_cta_index'; }]
+    ,['unsupported swap-only route', 'implementation_route_guard', (r) => { r.decisions[0].result='swaps_only'; }]
   ];
   const results = cases.map(([name, expectedCheck, mutate]) => {
     const registry=clone(valid); mutate(registry); const report=run(registry);
