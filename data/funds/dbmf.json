@@ -1,4 +1,5 @@
 {
+  "projection_schema": "ETFCTA-PUBLIC-EXPORT-001-v0.1.0",
   "release": "0.4.0",
   "generated_from": "../registry.json",
   "fund": {
@@ -75,7 +76,9 @@
       "preservation": {
         "status": "preserved",
         "document_sha256": "50fa73a96820964b5975efe064d57cb245b23eeb8c2655e18eb2be3617e6325c",
-        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src0"
+        "access": "restricted",
+        "retrievability": "internal_restricted_archive",
+        "public_locator": null
       }
     },
     {
@@ -95,7 +98,9 @@
       "preservation": {
         "status": "preserved",
         "document_sha256": "ec4edf7966591a272ad37c944793331ebc120d95ab3097a320ded0456919848c",
-        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src1"
+        "access": "restricted",
+        "retrievability": "internal_restricted_archive",
+        "public_locator": null
       }
     },
     {
@@ -113,7 +118,9 @@
       "preservation": {
         "status": "preserved",
         "document_sha256": "ea289386d91ecfe3caaea81a4c27e2a3728c31e90dfbd909effa4f53bd22b238",
-        "preservation_locator": "restricted-local:%TEMP%/ETFCTA-DBMF-0D/src3"
+        "access": "restricted",
+        "retrievability": "internal_restricted_archive",
+        "public_locator": null
       }
     },
     {
@@ -134,7 +141,9 @@
       "preservation": {
         "status": "preservation_unavailable",
         "document_sha256": null,
-        "limitation": "Verified at stable EDGAR locator; no local byte capture used for decision support."
+        "access": "unavailable",
+        "retrievability": "unavailable",
+        "public_locator": null
       }
     }
   ],

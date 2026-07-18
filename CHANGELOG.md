@@ -1,5 +1,12 @@
 # Changelog
 
+## Public Export Boundary — 2026-07-18
+
+- Added the versioned `ETFCTA-PUBLIC-EXPORT-001-v0.1.0` projection schema.
+- Replaced internal preservation locators in public fund JSON with access, retrievability, and nullable public-locator fields.
+- Added recursive leak detection and six negative tests for temporary paths, Windows paths, file URLs, restricted-local locators, localhost, and loopback addresses.
+- Integrated public-data generation and export validation into the validation command.
+
 ## Public Reference Surface — 2026-07-18
 
 - Added an indexable registry hub for the two governed funds.

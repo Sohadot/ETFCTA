@@ -157,3 +157,16 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `registry/`, `methodology/`, `classification-standard/`, `evidence-admission/`, `independence/`, `known-limitations/`, `reference/`, `compare/`, `data/funds/`, `data/releases/`, `route-manifest.json`
 - **Evidence of implementation:** Green release validation, fourteen negative tests, and the 17-route broken-link gate.
 - **Supersedes / superseded by:** Opens the public reference phase after DEC-ETFCTA-011 / None
+
+## DEC-ETFCTA-013 — Public export boundary
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Generated fund JSON inherited internal preservation locators from the canonical registry, exposing non-portable development paths.
+- **Decision:** Publish source preservation through an explicit allowlisted projection and never copy internal preservation locators into public exports.
+- **Rationale:** Public provenance must remain useful without leaking implementation-local details or implying that restricted temporary paths are publicly retrievable.
+- **Alternatives considered:** Delete all preservation information; make the canonical registry public-only; retain local locators with warning text.
+- **Consequences:** Public exports disclose status, SHA-256, access, retrievability, and nullable public locator. Recursive negative tests reject six internal path forms.
+- **Affected files:** `schemas/public-export.schema.json`, `scripts/generate-public-data.mjs`, `validation/public-export-validator.mjs`, `scripts/check-public-exports.mjs`, `data/funds/`
+- **Evidence of implementation:** Two valid public exports, six passing negative leak tests, and green release/link gates.
+- **Supersedes / superseded by:** Closes the deployment blocker identified after DEC-ETFCTA-012 / None

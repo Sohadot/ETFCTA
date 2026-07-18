@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://etfcta.com/schemas/public-export.schema.json",
+  "title":"ETFCTA public fund export",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["projection_schema","release","generated_from","fund","sources","evidence","decisions"],
+  "properties":{
+    "projection_schema":{"const":"ETFCTA-PUBLIC-EXPORT-001-v0.1.0"},
+    "release":{"type":"string"},
+    "generated_from":{"const":"../registry.json"},
+    "fund":{"type":"object"},
+    "sources":{"type":"array","items":{"type":"object","required":["source_id","preservation"],"properties":{"source_id":{"type":"string"},"preservation":{"type":"object","additionalProperties":false,"required":["status","document_sha256","access","retrievability","public_locator"],"properties":{"status":{"enum":["not_preserved","preserved","preservation_unavailable"]},"document_sha256":{"type":["string","null"]},"access":{"enum":["public","restricted","unavailable"]},"retrievability":{"enum":["public_locator","internal_restricted_archive","unavailable"]},"public_locator":{"type":["string","null"]}}}}}},
+    "evidence":{"type":"array"},
+    "decisions":{"type":"array"}
+  }
+}
