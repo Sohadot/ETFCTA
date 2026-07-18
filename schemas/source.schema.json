@@ -4,7 +4,7 @@
   "title": "ETFCTA source",
   "type": "object",
   "additionalProperties": false,
-  "required": ["source_id", "source_type", "title", "authority", "retrieved_at", "verification_status", "locator"],
+  "required": ["source_id", "source_type", "title", "authority", "retrieved_at", "verification_status", "locator", "preservation"],
   "properties": {
     "source_id": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"},
     "source_type": {"type": "string", "minLength": 1},
@@ -17,7 +17,16 @@
     "accession_number": {"type": "string"},
     "document_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "verification_status": {"enum": ["unverified", "verified", "superseded", "withdrawn"]},
-    "locator": {"type": "object", "minProperties": 1}
+    "locator": {"type": "object", "minProperties": 1},
+    "preservation": {
+      "type":"object", "additionalProperties":false,
+      "required":["status","document_sha256"],
+      "properties":{
+        "status":{"enum":["not_preserved","preserved","preservation_unavailable"]},
+        "document_sha256":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"},
+        "preservation_locator":{"type":"string"},
+        "limitation":{"type":"string"}
+      }
+    }
   }
 }
-

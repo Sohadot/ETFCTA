@@ -4,7 +4,7 @@
   "title": "ETFCTA classification change event",
   "type": "object",
   "additionalProperties": false,
-  "required": ["event_id", "fund_id", "effective_date", "recorded_at", "dimension", "previous_value", "new_value", "change_type", "trigger", "source_ids", "standard_version"],
+  "required": ["event_id", "fund_id", "effective_date", "recorded_at", "dimension", "previous_value", "new_value", "previous_decision_id", "new_decision_id", "change_type", "trigger", "source_ids", "standard_version"],
   "properties": {
     "event_id": {"type": "string", "pattern": "^CHG-[A-Z0-9-]+$"},
     "fund_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
@@ -13,6 +13,8 @@
     "dimension": {"type": "string", "minLength": 1},
     "previous_value": {"type": ["string", "null"]},
     "new_value": {"type": ["string", "null"]},
+    "previous_decision_id":{"type":["string","null"],"pattern":"^DEC-[A-Z0-9-]+$"},
+    "new_decision_id":{"type":["string","null"],"pattern":"^DEC-[A-Z0-9-]+$"},
     "change_type": {"enum": ["fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]},
     "trigger": {"type": "string", "minLength": 1},
     "source_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},

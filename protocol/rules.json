@@ -1,0 +1,7 @@
+{
+  "standard":"ECS-001",
+  "version":"0.1.0",
+  "rules":[],
+  "admission_note":"No classification rule is active until its definition, required evidence, result vocabulary, conflict behavior, and review window validate."
+}
+

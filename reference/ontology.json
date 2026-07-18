@@ -1,0 +1,8 @@
+{
+  "version":"0.1.0",
+  "layers": {
+    "fund_structure": ["strategy_family","market_universe","instruments","subsidiary_structure","counterparties","collateral","rebalancing","risk_targeting","disclosure_layer"],
+    "evidence": ["direct_primary","corroborated_primary","derived_classification","incomplete","conflicting","superseded","withdrawn","unknown","not_applicable"],
+    "change": ["fund_changed","disclosure_changed","evidence_improved","rule_changed","correction"]
+  }
+}

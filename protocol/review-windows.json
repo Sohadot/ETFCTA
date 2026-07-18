@@ -1,0 +1,8 @@
+{
+  "version":"0.1.0",
+  "default_days":365,
+  "by_source_type":{"prospectus":365,"statement_of_additional_information":365,"shareholder_report":365,"n_port":120,"issuer_web_disclosure":90},
+  "shorten_when":["known_source_supersession","conflicting_evidence","announced_strategy_change","rule_migration_required"],
+  "rule":"The earliest applicable window governs. A known event may require immediate review."
+}
+

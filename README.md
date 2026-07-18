@@ -1,6 +1,8 @@
 # ETFCTA
 
-ETFCTA is an open, evidence-linked classification registry for managed-futures ETFs. The founding release implements **Sprint 0A — Evidence and Classification Architecture** before any real fund is admitted.
+ETFCTA is the governed category intelligence source for managed-futures ETF structure, evidence, and change. Sprint 0A established the architecture of truth; **Sprint 0B — Evidence Admission Protocol** governs how knowledge may enter it before any real fund is admitted.
+
+The [Category Intelligence Charter](governance/CATEGORY-INTELLIGENCE-CHARTER.md) has precedence over individual sprints, routes, tools, and commercial surfaces.
 
 ## Run locally
 
@@ -12,9 +14,12 @@ Open `index.html` directly, or serve the repository with any static file server.
 node scripts/validate.mjs
 ```
 
-The validator checks the ECS specification, controlled vocabularies, JSON Schemas, and any future registry records without third-party dependencies.
+The validator checks the ECS specification, controlled vocabularies, ontology, glossary, admission history, source preservation, rule activation, sufficiency derivation, review windows, change continuity, and any future registry records without third-party dependencies.
 
 ## Founding rule
 
 No fund, quotation, source, evidence, decision, or change event is published until it can pass the repository's evidence and provenance rules. The `data/` collections are intentionally empty in v0.1.0.
 
+The operational sequence is:
+
+`Discover → Verify → Preserve → Extract → Apply rule → Record limits → Set review → Publish → Monitor → Correct`

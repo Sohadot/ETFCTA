@@ -13,7 +13,7 @@
     <a class="brand" href="#top" aria-label="ETFCTA home">ETF<span>CTA</span></a>
     <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav" aria-label="Primary navigation">
-      <a href="#registry">Registry</a><a href="#specification">ECS-001</a><a href="#methods">Methods</a><a href="#independence">Independence</a>
+      <a href="#registry">Registry</a><a href="#protocol">Protocol</a><a href="#specification">ECS-001</a><a href="#independence">Independence</a>
     </nav>
   </header>
   <main id="main">
@@ -39,6 +39,10 @@
     <section class="release" id="registry" aria-label="Registry release">
       <dl><div><dt>Registry release</dt><dd>v0.1.0</dd></div><div><dt>Release date</dt><dd>18 July 2026</dd></div><div><dt>Funds included</dt><dd>0</dd></div><div><dt>Within review window</dt><dd>0</dd></div></dl>
     </section>
+    <section class="thesis" aria-label="ETFCTA category thesis">
+      <blockquote>The ETF wrapper made managed futures accessible. <em>It did not make them understandable.</em></blockquote>
+      <div><p>Same label does not mean same exposure.</p><p>A classification without evidence history is only an opinion.</p></div>
+    </section>
     <section class="section decision" id="methods">
       <div class="section-intro"><h2>Every decision leaves a trail.</h2><p>A classification is publishable only when it answers five questions. The registry begins empty by design.</p></div>
       <div class="table-wrap" tabindex="0"><table><thead><tr><th>Dimension</th><th>ECS rule</th><th>Primary evidence</th><th>Inference</th><th>Review due</th></tr></thead><tbody><tr class="empty"><td colspan="5"><span>○</span> No admitted decisions in the founding release</td></tr></tbody></table></div>
@@ -46,6 +50,15 @@
     <section class="section history">
       <div class="section-intro"><h2>Change is recorded as an event.</h2><p>Not a yearly snapshot. Every event distinguishes what changed from why our judgment changed.</p></div>
       <ol class="timeline"><li><b>Fund changed</b><span>The underlying strategy or structure changed.</span></li><li><b>Disclosure changed</b><span>A source now describes the fund differently.</span></li><li><b>Evidence improved</b><span>Better evidence, without assuming a fund change.</span></li><li><b>Rule changed</b><span>A versioned ECS rule altered the result.</span></li><li><b>ETFCTA correction</b><span>Our prior record was wrong and is corrected publicly.</span></li></ol>
+    </section>
+    <section class="section protocol" id="protocol">
+      <div class="section-intro"><h2>Knowledge enters through a protocol.</h2><p>Discovery is not publication. Every fact must cross the same ten-stage admission path before it can support a public classification.</p></div>
+      <ol class="protocol-flow"><li><span>01</span><b>Discover source</b><small>Candidate only</small></li><li><span>02</span><b>Verify identity</b><small>Authority + dates</small></li><li><span>03</span><b>Preserve version</b><small>Locator + SHA-256</small></li><li><span>04</span><b>Extract evidence</b><small>Bounded observation</small></li><li><span>05</span><b>Apply ECS rule</b><small>Named + versioned</small></li><li><span>06</span><b>Record limits</b><small>Unknowns remain visible</small></li><li><span>07</span><b>Set review</b><small>Earliest window wins</small></li><li><span>08</span><b>Publish decision</b><small>Sufficiency governs status</small></li><li><span>09</span><b>Monitor change</b><small>Re-enter verification</small></li><li><span>10</span><b>Correct publicly</b><small>Never overwrite history</small></li></ol>
+      <div class="protocol-rule"><span>Admission state</span><strong>candidate → identity_verified → preserved → extracted → admitted</strong><a href="protocol/EVIDENCE-ADMISSION-PROTOCOL.md">Read the protocol</a></div>
+    </section>
+    <section class="section ontology">
+      <div class="section-intro"><h2>Three layers explain the record.</h2><p>The ontology separates what the fund is, what kind of knowledge supports it, and why the published state changed.</p></div>
+      <div class="ontology-grid"><article><span>01 / Fund structure</span><h3>What is the fund made of?</h3><p>Strategy family · Market universe · Instruments · Subsidiary structure · Counterparties · Collateral · Rebalancing · Risk targeting · Disclosure layer</p></article><article><span>02 / Evidence</span><h3>What kind of knowledge do we have?</h3><p>Direct · Corroborated · Derived · Incomplete · Conflicting · Superseded · Withdrawn · Unknown · Not applicable</p></article><article><span>03 / Change</span><h3>Why did the record move?</h3><p>Fund changed · Disclosure changed · Evidence improved · Rule changed · ETFCTA correction</p></article></div>
     </section>
     <section class="section tools">
       <div class="section-intro"><h2>Useful on a cadence.</h2><p>Planned tools turn the registry into a recurring research surface while preserving its non-advisory boundary.</p></div>
@@ -56,10 +69,9 @@
       <div class="section-intro"><h2>Five records. One auditable chain.</h2><p>Identity, documents, observations, decisions, and change events remain independently updateable.</p></div>
       <ol class="flow"><li><span>01</span><b>Fund identity</b></li><li><span>02</span><b>Source document</b></li><li><span>03</span><b>Evidence record</b></li><li><span>04</span><b>Classification decision</b></li><li><span>05</span><b>Change event</b></li></ol>
     </section>
-    <section class="spec-cta" id="specification"><h2>A specification before a database.</h2><p>ECS-001 v0.1.0 defines states, source identity, quotation rules, decisions, and event-based history before the first real fund is admitted.</p><a class="button primary" href="spec/ECS-001-v0.1.0.md">Open the specification</a></section>
+    <section class="spec-cta" id="specification"><h2>A standard, a protocol, and a memory.</h2><p>ECS-001 now separates structural classification, evidence sufficiency, and change and review governance. Sprint 0B defines how knowledge is admitted before the first real fund.</p><div class="spec-actions"><a class="button primary" href="spec/ECS-001-v0.1.0.md">Open ECS-001</a><a class="button inverse" href="governance/CATEGORY-INTELLIGENCE-CHARTER.md">Read the charter</a></div></section>
   </main>
-  <footer id="independence"><div class="brand">ETF<span>CTA</span></div><p>Independent reference infrastructure. Not affiliated with, endorsed by, or operated by any ETF issuer.</p><p>Open specification · Static JSON · Human and machine readable</p></footer>
+  <footer id="independence"><div class="brand">ETF<span>CTA</span></div><p>Independent reference infrastructure. Not affiliated with, endorsed by, or operated by any ETF issuer.</p><p>Category Intelligence Source · Open standard · Governed evidence</p></footer>
   <script type="module" src="assets/app.js"></script>
 </body>
 </html>
-
