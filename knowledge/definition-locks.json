@@ -1,0 +1,11 @@
+{
+  "version":"0.1.0",
+  "locks":[
+    {"term_id":"TERM-STRUCTURAL-FINGERPRINT","term_version":"0.1.0","sha256":"07520256422188cd5c74afa5912a639687fb42696b6651cab87ae8916c0722ce"},
+    {"term_id":"TERM-IMPLEMENTATION-ROUTE","term_version":"0.1.0","sha256":"afe7b0b14777cbb355088285834d17425e71448aed276b031dbf60c4c3cb408f"},
+    {"term_id":"TERM-SIGNAL-HORIZON","term_version":"0.1.0","sha256":"3cc4574bb030575c93489416a5063af8d594c0876ac0571a1f134e05fe3669da"},
+    {"term_id":"TERM-MANAGED-FUTURES-REPLICATION","term_version":"0.1.0","sha256":"5e917ce308a70ce2bc9d600216b5e9bf3426e5d27678b48cd2823797120bf7fb"},
+    {"term_id":"TERM-BENCHMARK-RELATIONSHIP","term_version":"0.1.0","sha256":"865d37f44e41704d26140cd8730a2a1036f7acbbbd155c61562987147e9be27a"}
+  ],
+  "migrations":[]
+}

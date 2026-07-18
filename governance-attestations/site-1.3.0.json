@@ -1,0 +1,6 @@
+{
+  "site_release":"1.3.0","data_release":"0.4.0","commit_sha":"a82672fadaee09a430a37e5b6e3dc013ea1871a1","gal_contract":"GAL-001-v0.1.0","checker_version":"0.1.0","attested_at":"2026-07-18T16:34:38.536Z",
+  "gate_results":{"content_governance":"pass","reference_integrity":"pass","editorial_governance":"pass","technical_quality":"pass"},
+  "artifact_hash_algorithm":"sha256",
+  "artifact_hashes":{"content_governance":"95e4bb66f6d58b51f4a8405075060ed28348c25094a804e15204c45e225199f8","reference_integrity":"f8c88ec05701f48037742c20539b5cae403353a5f623b627518d168a3854156c","editorial_governance":"5582f59737d3c59f328339141314e82431e0b554d4c08eeea784b77e5c0b72a6","technical_quality":"bf2335579cad220fcbecb9d68ff1caaea47a6e20494d7b4de010b1acf50dbb0e"}
+}

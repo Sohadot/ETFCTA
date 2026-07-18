@@ -1,4 +1,5 @@
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 
 export const routeToFile = (route) => route === '/' ? 'index.html' : route.endsWith('/') ? `${route.slice(1)}index.html` : route.slice(1);
 const metric = (metric_id, value, unit, target, extra={}) => ({metric_id,value,unit,target,...extra});
@@ -19,7 +20,7 @@ export function contentGate({routes, manifest, registry}) {
     if(page.content_status!=='published') violations.push(violation('CGS-R01',page.route,'public route must be published'));
     if(!/^\d{4}-\d{2}-\d{2}$/.test(page.reviewed_at??'')) violations.push(violation('CGS-R06',page.route,'reviewed_at is required'));
     if(!/^\d{4}-\d{2}-\d{2}$/.test(page.review_due??'')) violations.push(violation('CGS-R06',page.route,'review_due is required'));
-    if(page.limitations_state!=='none_material_known' && !(page.known_limitations?.length)) violations.push(violation('CGS-R07',page.route,'known limitations or explicit none state required'));
+    if(page.limitations_state!=='none_material_known' && !(page.known_limitations?.length) && !(page.global_limitations?.length)) violations.push(violation('CGS-R07',page.route,'known limitations or explicit none state required'));
     for(const quote of page.quotes??[]) if(!quote.locator) violations.push(violation('CGS-R05',page.route,'quotation requires locator'));
     for(const id of page.claim_ids??[]) {
       const decision=decisions.get(id);
@@ -94,12 +95,12 @@ export function editorialGate({pages,manifest}) {
         index=text.indexOf(phrase,index+phrase.length);
       }
     }
-    if((page.claim_ids?.length??0)>0 && page.limitations_state!=='none_material_known' && !(page.known_limitations?.length)) { structures++; violations.push(violation('EGS-R05',page.route,'claim-bearing page lacks declared boundary')); }
+    if((page.claim_ids?.length??0)>0 && page.limitations_state!=='none_material_known' && !(page.known_limitations?.length) && !(page.global_limitations?.length) && !(page.page_specific_limitations?.length)) { structures++; violations.push(violation('EGS-R05',page.route,'claim-bearing page lacks declared boundary')); }
   }
   return {violations,metrics:[metric('prohibited_language_violations_count',violations.filter(v=>v.rule_id==='EGS-R01'||v.rule_id==='EGS-R02').length,'count',0),metric('incomplete_reference_structures_count',structures,'count',0)]};
 }
 
-export function technicalGate({routes,pages,assetSizes={}}) {
+export function technicalGate({routes,pages,assetSizes={},manifest}) {
   const violations=[];
   for(const route of routes) {
     const html=pages.get(route)??'';
@@ -114,10 +115,62 @@ export function technicalGate({routes,pages,assetSizes={}}) {
     if(Buffer.byteLength(html)>131072) violations.push(violation('TQS-R06',route,'HTML exceeds 128 KiB'));
   }
   for(const [file,size] of Object.entries(assetSizes)) { const limit=file.endsWith('.css')?163840:131072; if(size>limit) violations.push(violation('TQS-R06',file,`asset exceeds ${limit} bytes`)); }
+  if(manifest) {
+    const descriptions=new Map();
+    for(const page of manifest.pages.filter(x=>['fund_dossier','comparison','evidence_status','methodology_gap','deep_reference'].includes(x.page_type))) { const description=(pages.get(page.route)??'').match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']+)/i)?.[1]; if(!description) violations.push(violation('TQS-R01',page.route,'indexable reference page requires meta description')); else if(descriptions.has(description)) violations.push(violation('TQS-R01',page.route,`duplicate meta description with ${descriptions.get(description)}`)); else descriptions.set(description,page.route); }
+  }
   return {violations,metrics:[
     metric('html_errors_count',violations.filter(v=>['TQS-R01','TQS-R02'].includes(v.rule_id)).length,'count',0),
     metric('accessibility_violations_count',violations.filter(v=>v.rule_id==='TQS-R03').length,'count',0),
     metric('performance_budget_breaches_count',violations.filter(v=>v.rule_id==='TQS-R06').length,'count',0),
     metric('console_errors_count',null,'count',0,{status:'runtime_not_measured'})
   ]};
+}
+
+export function knowledgeConsistencyGate({routes,pages,manifest,terms,locks,claims,glossary,registry,methodologyGaps}) {
+  const violations=[]; const ids=new Set(); const labels=new Map(); const definitions=new Map();
+  for(const term of terms.terms) {
+    if(ids.has(term.term_id)) violations.push(violation('KCS-R01',term.term_id,'duplicate term ID')); ids.add(term.term_id);
+    const label=term.canonical_label.toLowerCase(); if(labels.has(label)&&labels.get(label)!==term.term_id) violations.push(violation('KCS-R01',term.term_id,'duplicate canonical label')); labels.set(label,term.term_id);
+    if(definitions.has(term.definition)&&definitions.get(term.definition)!==term.term_id) violations.push(violation('KCS-R01',term.term_id,'duplicate canonical definition')); definitions.set(term.definition,term.term_id);
+    if(!routes.includes(term.publication_route)) violations.push(violation('KCS-R04',term.term_id,'publication route is not admitted'));
+    else if(!visibleText(pages.get(term.publication_route)??'').includes(term.definition)) violations.push(violation('KCS-R02',term.term_id,'published definition does not match canonical definition'));
+  }
+  const aliasOwners=new Map();
+  for(const term of terms.terms) for(const alias of term.aliases??[]) { const normalized=alias.toLowerCase(); const labelOwner=labels.get(normalized); if((labelOwner&&labelOwner!==term.term_id)||(aliasOwners.has(normalized)&&aliasOwners.get(normalized)!==term.term_id)) violations.push(violation('KCS-R04',term.term_id,`alias is not uniquely approved: ${alias}`)); aliasOwners.set(normalized,term.term_id); }
+  const glossaryById=new Map(glossary.terms.map(x=>[x.term_id,x]));
+  for(const term of terms.terms) { const shared=glossaryById.get(term.term_id); if(!shared||shared.definition!==term.definition||shared.label!==term.canonical_label) violations.push(violation('KCS-R03',term.term_id,'glossary and canonical registry disagree')); }
+  const lockById=new Map(locks.locks.map(x=>[x.term_id,x]));
+  for(const term of terms.terms) { const hash=createHash('sha256').update(term.definition).digest('hex'); const lock=lockById.get(term.term_id); if(!lock||lock.sha256!==hash||lock.term_version!==term.version) { const migrated=locks.migrations.some(x=>x.term_id===term.term_id&&x.to_version===term.version&&x.decision_log_id); if(!migrated) violations.push(violation('KCS-R05',term.term_id,'definition changed without migration')); } }
+  const pageByRoute=new Map(manifest.pages.map(page=>[page.route,fullPage(page,manifest.defaults)]));
+  const claimById=new Map(claims.claims.map(x=>[x.claim_id,x]));
+  const derive=(claim)=>claim.derivation==='count(funds)'?registry.funds.length:claim.derivation==='count(changes where change_type=initial_admission)'?registry.changes.filter(x=>x.change_type==='initial_admission').length:claim.derivation==='count(changes where change_type!=initial_admission)'?registry.changes.filter(x=>x.change_type!=='initial_admission').length:claim.derivation==='count(gaps)'?methodologyGaps.gaps.length:undefined;
+  for(const claim of claims.claims) {
+    if(!claims.allowed_claim_types.includes(claim.claim_type)||!claim.publication_routes?.length||!claim.derived_from?.length) violations.push(violation('KCS-R06',claim.claim_id,'claim type, basis, and publication routes are required'));
+    const actual=derive(claim); if(actual===undefined||actual!==claim.expected_value) violations.push(violation('KCS-R07',claim.claim_id,`derived value ${actual} does not equal ${claim.expected_value}`));
+    for(const route of claim.publication_routes??[]) { const page=pageByRoute.get(route); if(!page||(page.general_claim_ids??[]).includes(claim.claim_id)===false) violations.push(violation('KCS-R06',claim.claim_id,`route ${route} does not declare claim`)); const rendered=claim.rendered_values_by_route?.[route]??claim.rendered_value; if(!visibleText(pages.get(route)??'').includes(rendered)) violations.push(violation('KCS-R07',claim.claim_id,`rendered value missing from ${route}`)); }
+  }
+  for(const page of pageByRoute.values()) {
+    for(const id of page.general_claim_ids??[]) if(!claimById.has(id)) violations.push(violation('KCS-R06',id,`unknown claim on ${page.route}`));
+    for(const id of page.term_ids??[]) if(!ids.has(id)) violations.push(violation('KCS-R04',id,`unregistered term on ${page.route}`));
+    if(['fund_dossier','comparison','evidence_status','methodology_gap','deep_reference'].includes(page.page_type) && !(page.page_specific_limitations?.length)) violations.push(violation('KCS-R08',page.route,'page-specific limitation required'));
+  }
+  return {violations,metrics:[metric('duplicate_definitions_count',violations.filter(v=>v.rule_id==='KCS-R01'||v.rule_id==='KCS-R02'||v.rule_id==='KCS-R03').length,'count',0),metric('unknown_terms_count',violations.filter(v=>v.rule_id==='KCS-R04').length,'count',0),metric('unlogged_definition_changes_count',violations.filter(v=>v.rule_id==='KCS-R05').length,'count',0)]};
+}
+
+export function ontologyGovernanceGate({relationships,terms,registry,rules,manifest}) {
+  const violations=[]; const entities=new Map(); const add=(id,kind)=>{ if(entities.has(id)) violations.push(violation('OGS-R04',id,'duplicate entity ID')); entities.set(id,kind); };
+  registry.funds.forEach(x=>add(x.record_id,'fund')); registry.decisions.forEach(x=>add(x.decision_id,'decision')); registry.evidence.forEach(x=>add(x.evidence_id,'evidence')); registry.sources.forEach(x=>add(x.source_id,'source')); rules.rules.forEach(x=>add(x.rule_id,'rule')); terms.terms.forEach(x=>add(x.term_id,'term')); relationships.entity_extensions.forEach(x=>add(x.entity_id,x.kind));
+  const types=new Map(); for(const type of relationships.relation_types) { if(types.has(type.relation_type)) violations.push(violation('OGS-R04',type.relation_type,'duplicate relationship type')); types.set(type.relation_type,type); }
+  const relIds=new Set();
+  for(const rel of relationships.relationships) {
+    if(relIds.has(rel.relationship_id)) violations.push(violation('OGS-R04',rel.relationship_id,'duplicate relationship ID')); relIds.add(rel.relationship_id);
+    const type=types.get(rel.relation_type); if(!type) { violations.push(violation('OGS-R01',rel.relationship_id,'relationship type is not allowed')); continue; }
+    const subjectKind=entities.get(rel.subject_id), objectKind=entities.get(rel.object_id); if(!subjectKind||!objectKind) violations.push(violation('OGS-R02',rel.relationship_id,'relationship endpoint does not resolve')); else if(subjectKind!==type.subject_kind||objectKind!==type.object_kind) violations.push(violation('OGS-R03',rel.relationship_id,'relationship endpoint kinds do not match signature'));
+    if(rel.relation_type==='governed_by') { const decision=registry.decisions.find(x=>x.decision_id===rel.subject_id); if(decision&&decision.rule_id!==rel.object_id) violations.push(violation('OGS-R06',rel.relationship_id,'decision is linked to the wrong governing rule')); }
+  }
+  const fundByTicker=new Map(registry.funds.map(x=>[x.ticker.toLowerCase(),x.record_id]));
+  for(const page of manifest.pages.filter(x=>/^\/funds\/[^/]+\/$/.test(x.route))) { const ticker=page.route.split('/')[2]; const owner=fundByTicker.get(ticker); for(const id of page.claim_ids??[]) { const decision=registry.decisions.find(x=>x.decision_id===id); if(decision&&decision.fund_id!==owner) violations.push(violation('OGS-R06',id,`decision does not belong to ${owner}`)); } }
+  for(const entity of relationships.entity_extensions) if(entity.previous_ids?.length&&!relationships.entity_migrations.some(x=>x.entity_id===entity.entity_id&&x.decision_log_id)) violations.push(violation('OGS-R05',entity.entity_id,'entity rename lacks migration'));
+  return {violations,metrics:[metric('undefined_terms_count',violations.filter(v=>v.rule_id==='OGS-R02').length,'count',0),metric('invalid_relationships_count',violations.filter(v=>['OGS-R01','OGS-R03','OGS-R06'].includes(v.rule_id)).length,'count',0),metric('unmigrated_entity_renames_count',violations.filter(v=>v.rule_id==='OGS-R05').length,'count',0)]};
 }

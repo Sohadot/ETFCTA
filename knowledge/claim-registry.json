@@ -1,0 +1,10 @@
+{
+  "registry_id":"ETFCTA-CLAIMS-001","version":"0.1.0",
+  "allowed_claim_types":["classification_claim","registry_count_claim","governance_claim","methodology_claim","source_capability_claim","change_history_claim","editorial_explanation"],
+  "claims":[
+    {"claim_id":"CLM-CHANGES-INITIAL-COUNT-001","claim_type":"change_history_claim","statement_key":"initial_admission_event_count","derived_from":["data/registry.json"],"derivation":"count(changes where change_type=initial_admission)","expected_value":11,"rendered_value":"11","publication_routes":["/","/changes/"]},
+    {"claim_id":"CLM-CHANGES-POST-COUNT-001","claim_type":"change_history_claim","statement_key":"post_admission_change_count","derived_from":["data/registry.json"],"derivation":"count(changes where change_type!=initial_admission)","expected_value":0,"rendered_value":"0","publication_routes":["/","/changes/"]},
+    {"claim_id":"CLM-REGISTRY-FUND-COUNT-001","claim_type":"registry_count_claim","statement_key":"published_fund_count","derived_from":["data/registry.json"],"derivation":"count(funds)","expected_value":2,"rendered_value":"2","rendered_values_by_route":{"/":"2","/registry/":"Two"},"publication_routes":["/","/registry/"]},
+    {"claim_id":"CLM-METHODOLOGY-GAP-COUNT-001","claim_type":"methodology_claim","statement_key":"open_methodology_gap_count","derived_from":["data/methodology-gaps.json"],"derivation":"count(gaps)","expected_value":3,"rendered_value":"Three","publication_routes":["/methodology-gaps/"]}
+  ]
+}

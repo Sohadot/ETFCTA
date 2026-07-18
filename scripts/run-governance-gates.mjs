@@ -2,7 +2,7 @@ import {readFile,readdir,stat,mkdir,writeFile} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import path from 'node:path';
 import process from 'node:process';
-import {contentGate,referenceGate,editorialGate,technicalGate,routeToFile} from '../validation/governance-gates.mjs';
+import {contentGate,referenceGate,editorialGate,technicalGate,knowledgeConsistencyGate,ontologyGovernanceGate,routeToFile} from '../validation/governance-gates.mjs';
 
 const root=process.cwd();
 const load=async(file)=>JSON.parse(await readFile(path.join(root,file),'utf8'));
@@ -10,13 +10,14 @@ const routeManifest=await load('route-manifest.json');
 const manifest=await load('content/content-manifest.json');
 const registry=await load('data/registry.json');
 const contract=await load('protocol/governance-automation.json');
+const terms=await load('knowledge/term-registry.json'); const locks=await load('knowledge/definition-locks.json'); const claims=await load('knowledge/claim-registry.json'); const relationships=await load('knowledge/relationship-registry.json'); const glossary=await load('reference/glossary.json'); const rules=await load('protocol/rules.json'); const methodologyGaps=await load('data/methodology-gaps.json');
 const pages=new Map();
 for(const route of routeManifest.routes) { try { pages.set(route,await readFile(path.join(root,routeToFile(route)),'utf8')); } catch { pages.set(route,null); } }
 const sitemap=await readFile(path.join(root,'sitemap.xml'),'utf8');
 const sitemapRoutes=[...sitemap.matchAll(/<loc>https:\/\/etfcta\.com([^<]*)<\/loc>/g)].map(x=>x[1]||'/');
 const assets=(await readdir(path.join(root,'assets'))).filter(file=>/\.(css|js)$/.test(file));
 const assetSizes=Object.fromEntries(await Promise.all(assets.map(async file=>[`assets/${file}`,(await stat(path.join(root,'assets',file))).size])));
-const results={content_governance:contentGate({routes:routeManifest.routes,manifest,registry}),reference_integrity:referenceGate({routes:routeManifest.routes,pages,sitemapRoutes,registry}),editorial_governance:editorialGate({pages,manifest}),technical_quality:technicalGate({routes:routeManifest.routes,pages,assetSizes})};
+const results={content_governance:contentGate({routes:routeManifest.routes,manifest,registry}),reference_integrity:referenceGate({routes:routeManifest.routes,pages,sitemapRoutes,registry}),knowledge_consistency:knowledgeConsistencyGate({routes:routeManifest.routes,pages,manifest,terms,locks,claims,glossary,registry,methodologyGaps}),ontology_governance:ontologyGovernanceGate({relationships,terms,registry,rules,manifest}),editorial_governance:editorialGate({pages,manifest}),technical_quality:technicalGate({routes:routeManifest.routes,pages,assetSizes,manifest})};
 for(const file of assets.filter(file=>file.endsWith('.js'))) { const body=await readFile(path.join(root,'assets',file),'utf8'); if(/\bconsole\.log\s*\(|\bdebugger\b|sourceMappingURL=/.test(body)) results.technical_quality.violations.push({rule_id:'TQS-R07',entity_id:`assets/${file}`,message:'console-producing or debug pattern'}); }
 for(const file of assets.filter(file=>file.endsWith('.css'))) { const body=await readFile(path.join(root,'assets',file),'utf8'); if((body.match(/{/g)||[]).length!==(body.match(/}/g)||[]).length) results.technical_quality.violations.push({rule_id:'TQS-R04',entity_id:`assets/${file}`,message:'unbalanced CSS blocks'}); }
 let commit_sha='unknown'; try { commit_sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); } catch {}

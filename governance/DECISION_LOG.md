@@ -231,3 +231,15 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `content/content-manifest.json`, `governance/*-STANDARD.md`, `validation/governance-gates.mjs`, `scripts/run-governance-gates.mjs`, `tests/governance-gate-suite.mjs`
 - **Evidence of implementation:** Four passing GAL artifacts, zero gate violations, and all negative fixtures rejected.
 - **Supersedes / superseded by:** Executes the Sprint 4B controls declared by DEC-ETFCTA-017 / None
+
+## DEC-ETFCTA-019 — Enforce semantic consistency and ontology boundaries
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Sprint 4B governed routes and classification-decision claims but did not prevent definition drift, arbitrary relations, stale derived counts, or generic-only limitations on deep pages.
+- **Decision:** Enforce KCS-001 and OGS-001 through canonical term, claim, definition-lock, entity, and relationship registries before corpus expansion.
+- **Rationale:** A growing corpus must reuse the same meanings and derive factual counts from governed data rather than trusted prose.
+- **Consequences:** Published definitions match canonical text; changes require migrations; general claims are typed and recomputed; deep pages require specific limitations; relationship signatures and decision ownership are blocking controls.
+- **Affected files:** `knowledge/`, `governance/KNOWLEDGE-CONSISTENCY-STANDARD.md`, `governance/ONTOLOGY-GOVERNANCE-STANDARD.md`, `validation/governance-gates.mjs`, `tests/semantic-gate-suite.mjs`
+- **Evidence of implementation:** Six passing enforced GAL gates, eight rejected semantic fixtures, and a committed site 1.3.0 attestation.
+- **Supersedes / superseded by:** Executes Sprint 4C under DEC-ETFCTA-017 / None

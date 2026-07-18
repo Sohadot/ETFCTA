@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "terms": [
-    {"term_id":"TERM-STRUCTURAL-FINGERPRINT","label":"Structural Fingerprint","definition":"A neutral representation of fund structure and knowledge state; never a quality score.","data_fields":["fund.dimensions.*.knowledge_state"],"route":"/reference/structural-fingerprint"},
+    {"term_id":"TERM-STRUCTURAL-FINGERPRINT","label":"Structural Fingerprint","definition":"A compact representation of classified structure and knowledge state. It is never a score.","data_fields":["fund.dimensions.*.knowledge_state"],"route":"/reference/structural-fingerprint/"},
     {"term_id":"TERM-VERIFIABLE-CLASSIFICATION-MEMORY","label":"Verifiable Classification Memory","definition":"A versioned record of what was known, what changed, and why a classification judgment changed.","data_fields":["decision","change"],"route":"/reference/verifiable-classification-memory"},
     {"term_id":"TERM-EXPOSURE-CHANGE-INTELLIGENCE","label":"Exposure Change Intelligence","definition":"The governed analysis of what changed inside a fund, when, how it is known, and whether classification changed.","data_fields":["change.change_type","change.effective_date"],"route":"/reference/exposure-change-intelligence"},
     {"term_id":"TERM-DECISION-TRANSPARENCY","label":"Decision Transparency","definition":"Publication of the rule, evidence, inference, limitations, status, and review date behind a classification.","data_fields":["decision.rule_id","decision.evidence_ids","decision.reasoning_summary","decision.limitations","decision.review_due"],"route":"/reference/decision-transparency"},
@@ -10,11 +10,12 @@
     {"term_id":"TERM-EVIDENCE-ADMISSION","label":"Evidence Admission","definition":"The protocol-controlled acceptance of bounded evidence into the public registry.","data_fields":["evidence.admission"],"route":"/reference/evidence-admission"},
     {"term_id":"TERM-CLASSIFICATION-CHANGE-EVENT","label":"Classification Change Event","definition":"An event-based record that preserves the previous value, new value, trigger, cause, and standard version.","data_fields":["change"],"route":"/reference/classification-change-event"},
     {"term_id":"TERM-UNRESOLVED-EXPOSURE-STATE","label":"Unresolved Exposure State","definition":"An explicit state used when reviewed evidence is incomplete, unknown, or conflicting.","data_fields":["fund.dimensions.*.knowledge_state"],"route":"/reference/unresolved-exposure-state"},
-    {"term_id":"TERM-IMPLEMENTATION-ROUTE","label":"Implementation Route","definition":"The governed description of instruments and legal structures used to obtain exposure.","data_fields":["fund.dimensions.implementation_route"],"route":"/reference/implementation-route"},
+    {"term_id":"TERM-IMPLEMENTATION-ROUTE","label":"Implementation Route","definition":"The disclosed path by which a fund obtains its strategy exposure—not a guess from a single holding or instrument.","data_fields":["fund.dimensions.implementation_route"],"route":"/reference/implementation-route/"},
     {"term_id":"TERM-MARKET-BREADTH","label":"Market Breadth","definition":"The set of market families within a strategy's evidenced opportunity universe.","data_fields":["fund.dimensions.market_breadth"],"route":"/reference/market-breadth"},
-    {"term_id":"TERM-SIGNAL-HORIZON","label":"Signal Horizon","definition":"The evidenced time horizon over which strategy signals are formed or expressed.","data_fields":["fund.dimensions.signal_horizon"],"route":"/reference/signal-horizon"},
+    {"term_id":"TERM-SIGNAL-HORIZON","label":"Signal Horizon","definition":"The disclosed lookback or time horizon governing a signal—not its evaluation or rebalance frequency.","data_fields":["fund.dimensions.signal_horizon"],"route":"/reference/signal-horizon/"},
+    {"term_id":"TERM-MANAGED-FUTURES-REPLICATION","label":"Managed-Futures Replication","definition":"A methodology seeking to reproduce material exposures or pre-fee behavior of a representative managed-futures set without implying index tracking.","data_fields":["fund.dimensions.replication_method"],"route":"/reference/managed-futures-replication/"},
+    {"term_id":"TERM-BENCHMARK-RELATIONSHIP","label":"Benchmark Relationship","definition":"The governed relationship between a fund and an index or comparison benchmark, kept separate from replication language.","data_fields":["fund.dimensions.benchmark_relationship"],"route":"/reference/benchmark-relationship/"},
     {"term_id":"TERM-REVIEW-WINDOW","label":"Review Window","definition":"The governed interval after which evidence or a decision requires renewed review.","data_fields":["decision.review_due"],"route":"/reference/review-window"},
     {"term_id":"TERM-EVIDENCE-SUFFICIENCY","label":"Evidence Sufficiency","definition":"Whether admitted evidence satisfies the minimum requirements of a named ECS rule.","data_fields":["decision.sufficiency_result"],"route":"/reference/evidence-sufficiency"}
   ]
 }
-

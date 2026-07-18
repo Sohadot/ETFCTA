@@ -1,0 +1,26 @@
+{
+  "registry_id":"ETFCTA-RELATIONSHIPS-001","version":"0.1.0",
+  "entity_extensions":[
+    {"entity_id":"STRATEGY-TREND-FOLLOWING","kind":"strategy","canonical_label":"Trend following"},
+    {"entity_id":"STRATEGY-MANAGED-FUTURES-REPLICATION","kind":"strategy","canonical_label":"Managed-futures replication"}
+  ],
+  "relation_types":[
+    {"relation_type":"uses_strategy","subject_kind":"fund","object_kind":"strategy"},
+    {"relation_type":"implemented_via","subject_kind":"fund","object_kind":"term"},
+    {"relation_type":"governed_by","subject_kind":"decision","object_kind":"rule"},
+    {"relation_type":"extracted_from","subject_kind":"evidence","object_kind":"source"},
+    {"relation_type":"narrower_than","subject_kind":"term","object_kind":"term"},
+    {"relation_type":"contrasts_with","subject_kind":"term","object_kind":"term"}
+  ],
+  "relationships":[
+    {"relationship_id":"REL-KMLM-STRATEGY-001","subject_id":"ETFCTA-FUND-US-KMLM","relation_type":"uses_strategy","object_id":"STRATEGY-TREND-FOLLOWING"},
+    {"relationship_id":"REL-DBMF-STRATEGY-001","subject_id":"ETFCTA-FUND-US-DBMF","relation_type":"uses_strategy","object_id":"STRATEGY-MANAGED-FUTURES-REPLICATION"},
+    {"relationship_id":"REL-KMLM-IMPLEMENTATION-001","subject_id":"ETFCTA-FUND-US-KMLM","relation_type":"implemented_via","object_id":"TERM-IMPLEMENTATION-ROUTE"},
+    {"relationship_id":"REL-DBMF-IMPLEMENTATION-001","subject_id":"ETFCTA-FUND-US-DBMF","relation_type":"implemented_via","object_id":"TERM-IMPLEMENTATION-ROUTE"},
+    {"relationship_id":"REL-KMLM-SF-RULE-001","subject_id":"DEC-KMLM-SF-001","relation_type":"governed_by","object_id":"ECS-SF-R01"},
+    {"relationship_id":"REL-DBMF-RM-RULE-001","subject_id":"DEC-DBMF-RM-001","relation_type":"governed_by","object_id":"ECS-RM-R01"},
+    {"relationship_id":"REL-KMLM-SF-SOURCE-001","subject_id":"EVD-KMLM-SF-001","relation_type":"extracted_from","object_id":"SRC-KMLM-PROSPECTUS-20260625"},
+    {"relationship_id":"REL-DBMF-RM-SOURCE-001","subject_id":"EVD-DBMF-RM-001","relation_type":"extracted_from","object_id":"SRC-DBMF-PROSPECTUS-20250429"}
+  ],
+  "entity_migrations":[]
+}

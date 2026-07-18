@@ -12,9 +12,10 @@
   "sprint_3_status":"evidence_intelligence_published",
   "sprint_4a_status":"governance_automation_charter_ratified",
   "sprint_4b_status":"executable_quality_integrity_gates_enforced",
+  "sprint_4c_status":"knowledge_consistency_ontology_enforced",
   "governance_automation_contract":"GAL-001-v0.1.0",
-  "required_gal_gates":["content_governance","reference_integrity","editorial_governance","technical_quality"],
+  "required_gal_gates":["content_governance","reference_integrity","knowledge_consistency","ontology_governance","editorial_governance","technical_quality"],
   "production_admission_authorized":true,
-  "next_sprint":"Sprint_4C",
-  "next_sprint_unlocked_when":"All four Sprint 4B gates emit passing GAL artifacts and all negative fixtures are rejected."
+  "next_sprint":"Sprint_4D",
+  "next_sprint_unlocked_when":"Knowledge consistency and ontology governance emit passing GAL artifacts and all semantic negative fixtures are rejected."
 }

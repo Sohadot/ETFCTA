@@ -1,5 +1,13 @@
 # Changelog
 
+## Sprint 4C — Knowledge Consistency and Ontology Enforcement — 2026-07-18
+
+- Enforced canonical definition, definition-lock, glossary alignment, claim derivation, page-specific limitation, entity, and relationship controls.
+- Added five canonical published terms, two strategy entities, six allowed relation types, eight relationship instances, and four general derived claims.
+- Added eight semantic negative fixtures covering conflicts, unknown terms, aliases, relations, migrations, derived counts, fund ownership, and generic-only limitations.
+- Archived the site 1.3.0 GAL attestation with hashes for its four original gate artifacts.
+- Restored unique meta descriptions to fund dossiers and trails and raised site release to 1.4.0 without changing data release 0.4.0.
+
 ## Sprint 4B — Executable Quality and Integrity Gates — 2026-07-18
 
 - Enforced content governance, reference integrity, editorial governance, and technical quality under GAL-001.
