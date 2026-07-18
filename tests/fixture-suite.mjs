@@ -3,7 +3,7 @@ import path from 'node:path';
 import { validateRegistry } from '../validation/registry-validator.mjs';
 
 const clone = (value) => structuredClone(value);
-const correction = {event_id:'CHG-TEST-001',fund_id:'ETFCTA-FUND-TEST-001',effective_date:'2026-01-01',recorded_at:'2026-01-02T00:00:00Z',dimension:'market_breadth',previous_value:'single_asset_family',new_value:'multi_asset',previous_decision_id:null,new_decision_id:'DEC-TEST-MB-001',change_type:'correction',trigger:'synthetic_negative_test',source_ids:['SRC-TEST-001'],standard_version:'ECS-001-v0.1.0'};
+const correction = {event_id:'CHG-TEST-001',fund_id:'ETFCTA-FUND-TEST-001',effective_date:'2026-01-01',recorded_at:'2026-01-02T00:00:00Z',recording_mode:'real_time',batch_id:'ETFCTA-TEST-BATCH-001',sequence:1,memory_record_created_in_site_release:'1.1.0',decision_origin_data_release:'0.1.0',dimension:'market_breadth',previous_value:'single_asset_family',new_value:'multi_asset',previous_decision_id:null,new_decision_id:'DEC-TEST-MB-001',change_type:'correction',trigger:'synthetic_negative_test',source_ids:['SRC-TEST-001'],standard_version:'ECS-001-v0.1.0'};
 
 export async function runFixtureSuite(context, root) {
   const valid = JSON.parse(await readFile(path.join(root, 'tests/fixtures/canonical-valid.json'), 'utf8'));

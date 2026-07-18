@@ -745,7 +745,7 @@
       "event_id": "CHG-DBMF-ADMISSION-006",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:07:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "replication_method",
       "previous_value": null,
       "new_value": "managed_futures_replication",
@@ -756,13 +756,18 @@
       "source_ids": [
         "SRC-DBMF-PROSPECTUS-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 6,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     },
     {
       "event_id": "CHG-DBMF-ADMISSION-007",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:08:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "management_mode",
       "previous_value": null,
       "new_value": "active_management",
@@ -773,13 +778,18 @@
       "source_ids": [
         "SRC-DBMF-PROSPECTUS-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 7,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     },
     {
       "event_id": "CHG-DBMF-ADMISSION-008",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:09:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "market_breadth",
       "previous_value": null,
       "new_value": "multi_asset",
@@ -790,13 +800,18 @@
       "source_ids": [
         "SRC-DBMF-PROSPECTUS-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 8,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     },
     {
       "event_id": "CHG-DBMF-ADMISSION-009",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:10:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "implementation_route",
       "previous_value": null,
       "new_value": "mixed_derivatives_with_commodity_subsidiary",
@@ -808,13 +823,18 @@
         "SRC-DBMF-PROSPECTUS-20250429",
         "SRC-DBMF-SAI-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 9,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     },
     {
       "event_id": "CHG-DBMF-ADMISSION-010",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:11:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "benchmark_relationship",
       "previous_value": null,
       "new_value": "not_determinable_as_index_tracking",
@@ -825,13 +845,18 @@
       "source_ids": [
         "SRC-DBMF-PROSPECTUS-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 10,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     },
     {
       "event_id": "CHG-DBMF-ADMISSION-011",
       "fund_id": "ETFCTA-FUND-US-DBMF",
       "effective_date": "2026-07-18",
-      "recorded_at": "2026-07-18T14:12:00Z",
+      "recorded_at": "2026-07-18T14:55:35Z",
       "dimension": "directional_flexibility",
       "previous_value": null,
       "new_value": "long_short",
@@ -842,7 +867,12 @@
       "source_ids": [
         "SRC-DBMF-PROSPECTUS-20250429"
       ],
-      "standard_version": "ECS-001-v0.1.0"
+      "standard_version": "ECS-001-v0.1.0",
+      "recording_mode": "retrospective_initialization",
+      "batch_id": "ETFCTA-MEMORY-INIT-20260718",
+      "sequence": 11,
+      "memory_record_created_in_site_release": "1.1.0",
+      "decision_origin_data_release": "0.4.0"
     }
   ]
 }

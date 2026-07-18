@@ -116,7 +116,10 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
     push(checks, 'append_only_change', change.change_type !== 'correction' || Boolean(change.previous_decision_id), `${change.event_id}: correction requires previous decision.`);
     push(checks, 'append_only_change', change.change_type !== 'correction' || Boolean(change.correction_metadata), `${change.event_id}: correction metadata is required.`);
     push(checks, 'append_only_change', change.change_type !== 'initial_admission' || change.previous_value === null && change.previous_decision_id === null && Boolean(change.new_value && change.new_decision_id), `${change.event_id}: initial admission must begin from a null state.`);
+    push(checks, 'append_only_change', change.change_type !== 'initial_admission' || change.recording_mode === 'retrospective_initialization' && change.batch_id === 'ETFCTA-MEMORY-INIT-20260718', `${change.event_id}: initialized memory requires explicit retrospective batch metadata.`);
   }
+  const initialized = registry.changes.filter((change) => change.change_type === 'initial_admission');
+  push(checks, 'append_only_change', new Set(initialized.map((change) => change.sequence)).size === initialized.length, 'Initial-admission sequence values must be unique.');
   checks.canonical_fixture.passed = fixturePassed; if (!fixturePassed) checks.canonical_fixture.errors.push('Canonical synthetic fixture did not pass.');
   checks.negative_tests.passed = negativeTestsPassed; if (!negativeTestsPassed) checks.negative_tests.errors.push('Negative test suite did not pass.');
   return { passed: checkNames.every((name) => checks[name]?.passed), checks };

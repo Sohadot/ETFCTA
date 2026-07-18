@@ -1,0 +1,151 @@
+{
+  "projection_schema": "ETFCTA-PUBLIC-EVIDENCE-STATUS-001-v0.1.0",
+  "release": "0.4.0",
+  "generated_from": "registry.json",
+  "funds": [
+    {
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "ticker": "KMLM",
+      "last_reviewed": "2026-07-18",
+      "review_due": "2027-07-18",
+      "coverage": {
+        "identity": "complete",
+        "strategy": "complete",
+        "market_breadth": "complete",
+        "implementation": "corroborated",
+        "signal_horizon": "unresolved",
+        "benchmark_relationship": "not_assessed",
+        "holdings_freshness": "current_at_admission",
+        "independent_methodology": "missing"
+      }
+    },
+    {
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "ticker": "DBMF",
+      "last_reviewed": "2026-07-18",
+      "review_due": "2027-07-18",
+      "coverage": {
+        "identity": "complete",
+        "strategy": "complete",
+        "market_breadth": "complete",
+        "implementation": "corroborated",
+        "signal_horizon": "not_assessed",
+        "benchmark_relationship": "unresolved",
+        "holdings_freshness": "not_available",
+        "independent_methodology": "not_assessed"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KMLM-PROSPECTUS-20260625",
+      "title": "KraneShares Trust Statutory Prospectus",
+      "source_type": "primary_fund_document",
+      "effective_date": "2026-06-25",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-KMLM-SAI-20260625",
+      "title": "KraneShares Trust Statement of Additional Information",
+      "source_type": "primary_fund_document",
+      "effective_date": "2026-06-25",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-KMLM-FUND-PAGE-20260718",
+      "title": "KMLM official fund page",
+      "source_type": "issuer_fund_page",
+      "effective_date": null,
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-KMLM-HOLDINGS-20260717",
+      "title": "KMLM official holdings CSV",
+      "source_type": "official_holdings_csv",
+      "effective_date": "2026-07-17",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-KMLM-SEC-METADATA-20260220",
+      "title": "KraneShares Trust definitive materials filing metadata",
+      "source_type": "sec_filing_metadata",
+      "effective_date": "2026-02-20",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preservation_unavailable",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-DBMF-PROSPECTUS-20250429",
+      "title": "iMGP DBi Managed Futures Strategy ETF Prospectus",
+      "source_type": "primary_fund_document",
+      "effective_date": "2025-04-29",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-DBMF-SAI-20250429",
+      "title": "iMGP Funds Statement of Additional Information",
+      "source_type": "primary_fund_document",
+      "effective_date": "2025-04-29",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-DBMF-FACTSHEET-202604",
+      "title": "DBMF official fact sheet",
+      "source_type": "issuer_fund_page",
+      "effective_date": null,
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-DBMF-FUND-PAGE-20260718",
+      "title": "DBMF official fund page",
+      "source_type": "issuer_fund_page",
+      "effective_date": null,
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preserved",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    },
+    {
+      "source_id": "SRC-DBMF-SEC-485BPOS-202606",
+      "title": "Litman Gregory Funds Trust Form 485BPOS",
+      "source_type": "sec_filing_metadata",
+      "effective_date": "2026-06-01",
+      "retrieved_at": "2026-07-18",
+      "verification_status": "verified",
+      "preservation_status": "preservation_unavailable",
+      "newer_version_status": "not_determined",
+      "link_check_status": "not_rechecked_in_sprint_3"
+    }
+  ]
+}

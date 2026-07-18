@@ -1,0 +1,37 @@
+{
+  "projection_schema": "ETFCTA-PUBLIC-METHODOLOGY-GAPS-001-v0.1.0",
+  "release": "0.4.0",
+  "generated_from": [
+    "registry.json",
+    "../sources/KMLM/source-pack.json"
+  ],
+  "gaps": [
+    {
+      "gap_id": "GAP-KMLM-SIGNAL-HORIZON",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "signal_horizon",
+      "state": "unresolved",
+      "decision_id": "DEC-KMLM-SH-001",
+      "summary": "The result is a bounded non-disclosure finding, not a claim that no horizon exists.",
+      "review_due": "2027-07-18"
+    },
+    {
+      "gap_id": "GAP-DBMF-BENCHMARK-RELATIONSHIP",
+      "fund_id": "ETFCTA-FUND-US-DBMF",
+      "dimension": "benchmark_relationship",
+      "state": "unresolved",
+      "decision_id": "DEC-DBMF-BR-001",
+      "summary": "Confirmed describes the evidence conclusion, not a known benchmark relationship.",
+      "review_due": "2027-07-18"
+    },
+    {
+      "gap_id": "GAP-KMLM-INDEPENDENT-METHODOLOGY",
+      "fund_id": "ETFCTA-FUND-US-KMLM",
+      "dimension": "methodology_source",
+      "state": "missing",
+      "decision_id": null,
+      "summary": "No standalone official KFA MLM Index methodology document was independently located during admission.",
+      "review_due": "2027-07-18"
+    }
+  ]
+}

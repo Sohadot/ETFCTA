@@ -1,5 +1,12 @@
 # Changelog
 
+## Sprint 3 — Evidence Intelligence — 2026-07-18
+
+- Corrected memory initialization timestamps to the actual creation commit time and added explicit batch, sequence, recording-mode, site-release, and decision-origin metadata.
+- Published evidence coverage, source freshness boundaries, methodology gaps, source-type proof limits, and an evidence challenge route.
+- Added public evidence-status and methodology-gap exports without aggregate scores.
+- Added a structured GitHub evidence-challenge issue form governed by EAP-001.
+
 ## Sprint 2 — Category Memory — 2026-07-18
 
 - Added eleven append-only `initial_admission` events covering the current KMLM and DBMF dimensions.

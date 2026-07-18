@@ -183,3 +183,27 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `data/registry.json`, `schemas/change.schema.json`, `spec/vocabularies.json`, `reference/ontology.json`, `changes/`, `review-calendar/`, `funds/*/changes/`, `data/changes.json`
 - **Evidence of implementation:** Green append-only validation, negative admission-history test, public export boundary, and 21-route link gate.
 - **Supersedes / superseded by:** Begins Sprint 2 category memory after DEC-ETFCTA-013 / None
+
+## DEC-ETFCTA-015 — Correct memory initialization time semantics
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Sequential minute values were generated to order the eleven initial-admission events and were not actual independent recording times.
+- **Decision:** Use the actual memory-creation commit time `2026-07-18T14:55:35Z` for the full batch and order events with explicit sequence values.
+- **Rationale:** `recorded_at` must represent real creation time; ordering belongs in sequence metadata.
+- **Consequences:** Every baseline event declares retrospective initialization, batch `ETFCTA-MEMORY-INIT-20260718`, site release 1.1.0, and its decision-origin data release.
+- **Affected files:** `data/registry.json`, `schemas/change.schema.json`, public change exports.
+- **Evidence of implementation:** Commit timestamp for `64ec347` and green append-only validation.
+- **Supersedes / superseded by:** Corrects generated time semantics in DEC-ETFCTA-014 / None
+
+## DEC-ETFCTA-016 — Publish evidence intelligence without scoring
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Users could trace individual evidence but lacked a consolidated view of coverage, freshness boundaries, and open gaps.
+- **Decision:** Publish qualitative evidence states, methodology gaps, source proof boundaries, and a governed challenge route.
+- **Rationale:** Evidence strength and absence must be operationally visible without collapsing heterogeneous states into a score.
+- **Consequences:** Coverage uses complete, corroborated, unresolved, missing, not available, and not assessed states. External link recency and newer-version status remain explicitly unverified in Sprint 3.
+- **Affected files:** `evidence-status/`, `methodology-gaps/`, `sources/`, `evidence-challenge/`, `data/evidence-status.json`, `data/methodology-gaps.json`
+- **Evidence of implementation:** Public export boundary, evidence pages, machine exports, and challenge workflow.
+- **Supersedes / superseded by:** Opens Sprint 3 after corrected category-memory initialization / None

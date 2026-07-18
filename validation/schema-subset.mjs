@@ -1,4 +1,4 @@
-const typeMatches = (value, type) => type === 'null' ? value === null : type === 'array' ? Array.isArray(value) : type === 'object' ? value !== null && typeof value === 'object' && !Array.isArray(value) : typeof value === type;
+const typeMatches = (value, type) => type === 'null' ? value === null : type === 'array' ? Array.isArray(value) : type === 'object' ? value !== null && typeof value === 'object' && !Array.isArray(value) : type === 'integer' ? Number.isInteger(value) : typeof value === type;
 const isDate = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
 const isDateTime = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) && !Number.isNaN(Date.parse(value));
 
@@ -18,6 +18,10 @@ export function validateSchema(value, schema, at = '$') {
     if (schema.format === 'date' && !isDate(value)) fail('invalid date');
     if (schema.format === 'date-time' && !isDateTime(value)) fail('invalid date-time');
     if (schema.format === 'uri') { try { new URL(value); } catch { fail('invalid URI'); } }
+  }
+  if (typeof value === 'number') {
+    if (schema.minimum !== undefined && value < schema.minimum) fail(`minimum is ${schema.minimum}`);
+    if (schema.maximum !== undefined && value > schema.maximum) fail(`maximum is ${schema.maximum}`);
   }
   if (Array.isArray(value)) {
     if (schema.minItems !== undefined && value.length < schema.minItems) fail(`requires at least ${schema.minItems} items`);

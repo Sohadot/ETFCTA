@@ -9,7 +9,8 @@
   "code_deployment_ready":true,
   "domain_runtime_verified":false,
   "sprint_2_status":"category_memory_published",
+  "sprint_3_status":"evidence_intelligence_published",
   "production_admission_authorized":true,
-  "next_sprint":"post_Sprint_1",
-  "next_sprint_unlocked_when":"All checks pass for the canonical fund admission fixture and no prohibited placeholder facts exist."
+  "next_sprint":"post_Sprint_3",
+  "next_sprint_unlocked_when":"Sprint 3 evidence exports, governed challenge route, schema validation, negative tests, and public link checks all pass."
 }

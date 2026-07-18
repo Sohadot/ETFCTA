@@ -1,0 +1,28 @@
+name: Evidence challenge
+description: Submit a missing source, newer document, precise locator, rule objection, or disclosure conflict.
+title: "evidence: "
+labels: ["evidence-challenge"]
+body:
+  - type: input
+    id: record
+    attributes: {label: Fund or decision ID, placeholder: "ETFCTA-FUND-US-DBMF or DEC-DBMF-IR-001"}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: Primary-source URL}
+    validations: {required: true}
+  - type: input
+    id: locator
+    attributes: {label: Exact locator, description: "Page, section, paragraph, table, or machine locator."}
+    validations: {required: true}
+  - type: textarea
+    id: claim
+    attributes: {label: Claim and requested action, description: "State what the source proves, contradicts, or leaves unresolved; request admit, supersede, correct, or review."}
+    validations: {required: true}
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Submission boundary
+      options:
+        - label: I understand this submission remains a candidate until it passes EAP-001.
+          required: true
