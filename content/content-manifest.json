@@ -1,0 +1,18 @@
+{
+  "manifest_id": "ETFCTA-CONTENT-001",
+  "version": "0.1.0",
+  "governing_standard": "CGS-001-v0.1.0",
+  "defaults": {"content_status":"published","reviewed_at":"2026-07-18","review_due":"2027-07-18","limitations_state":"declared","known_limitations":["Scope is bounded to the current governed release and admitted source set."],"quotes":[],"editorial_exceptions":[]},
+  "pages": [
+    {"route":"/","claim_ids":[]},{"route":"/registry/","claim_ids":[]},{"route":"/changes/","claim_ids":[]},{"route":"/review-calendar/","claim_ids":[]},{"route":"/evidence-status/","claim_ids":[]},{"route":"/methodology-gaps/","claim_ids":[]},{"route":"/sources/","claim_ids":[]},{"route":"/evidence-challenge/","claim_ids":[]},
+    {"route":"/funds/kmlm/","claim_ids":["DEC-KMLM-SF-001","DEC-KMLM-MB-001","DEC-KMLM-IR-001","DEC-KMLM-DF-001","DEC-KMLM-SH-001"]},
+    {"route":"/funds/kmlm/trail.html","claim_ids":["DEC-KMLM-SF-001","DEC-KMLM-MB-001","DEC-KMLM-IR-001","DEC-KMLM-DF-001","DEC-KMLM-SH-001"]},
+    {"route":"/funds/kmlm/changes/","claim_ids":["DEC-KMLM-SF-001","DEC-KMLM-MB-001","DEC-KMLM-IR-001","DEC-KMLM-DF-001","DEC-KMLM-SH-001"]},
+    {"route":"/funds/dbmf/","claim_ids":["DEC-DBMF-RM-001","DEC-DBMF-AM-001","DEC-DBMF-MB-001","DEC-DBMF-IR-001","DEC-DBMF-BR-001","DEC-DBMF-DF-001"]},
+    {"route":"/funds/dbmf/trail.html","claim_ids":["DEC-DBMF-RM-001","DEC-DBMF-AM-001","DEC-DBMF-MB-001","DEC-DBMF-IR-001","DEC-DBMF-BR-001","DEC-DBMF-DF-001"]},
+    {"route":"/funds/dbmf/changes/","claim_ids":["DEC-DBMF-RM-001","DEC-DBMF-AM-001","DEC-DBMF-MB-001","DEC-DBMF-IR-001","DEC-DBMF-BR-001","DEC-DBMF-DF-001"]},
+    {"route":"/methodology/","claim_ids":[]},{"route":"/classification-standard/","claim_ids":[],"editorial_exceptions":[{"phrase":"best","rationale":"Negated publication boundary: ECS does not classify a best fund.","reviewer":"Editorial Reviewer"}]},{"route":"/evidence-admission/","claim_ids":[]},{"route":"/independence/","claim_ids":[]},{"route":"/known-limitations/","claim_ids":[]},
+    {"route":"/reference/managed-futures-replication/","claim_ids":["DEC-DBMF-RM-001","DEC-DBMF-BR-001"]},{"route":"/reference/implementation-route/","claim_ids":["DEC-KMLM-IR-001","DEC-DBMF-IR-001"]},{"route":"/reference/structural-fingerprint/","claim_ids":[]},{"route":"/reference/benchmark-relationship/","claim_ids":["DEC-DBMF-BR-001"]},{"route":"/reference/signal-horizon/","claim_ids":["DEC-KMLM-SH-001"]},
+    {"route":"/compare/kmlm-vs-dbmf/","claim_ids":["DEC-KMLM-SF-001","DEC-KMLM-MB-001","DEC-KMLM-IR-001","DEC-KMLM-DF-001","DEC-KMLM-SH-001","DEC-DBMF-RM-001","DEC-DBMF-AM-001","DEC-DBMF-MB-001","DEC-DBMF-IR-001","DEC-DBMF-BR-001","DEC-DBMF-DF-001"]}
+  ]
+}

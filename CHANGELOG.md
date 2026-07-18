@@ -1,5 +1,13 @@
 # Changelog
 
+## Sprint 4B — Executable Quality and Integrity Gates — 2026-07-18
+
+- Enforced content governance, reference integrity, editorial governance, and technical quality under GAL-001.
+- Added one governed content manifest covering all 25 public routes and four versioned implementation standards.
+- Added auditable per-gate JSON artifacts with measurements and stable rule violations.
+- Added 14 negative fixtures covering unsupported claims, quotation locators, review dates, route integrity, JSON-LD, recommendation language, accessibility structure, budgets, and external dependencies.
+- Corrected dossier canonicals, sitemap coverage, and three orphan reference routes discovered by the new gates.
+
 ## Sprint 4A — Governance Automation Charter — 2026-07-18
 
 - Ratified GAL-001 and the rule that no knowledge enters the corpus outside governance.

@@ -219,3 +219,15 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `governance/GOVERNANCE_AUTOMATION_CHARTER.md`, `protocol/governance-automation.json`, `scripts/check-governance-contract.mjs`, `protocol/release-gate.json`
 - **Evidence of implementation:** Executable contract check covering all nine layers and their declared metrics.
 - **Supersedes / superseded by:** Opens Sprint 4A after DEC-ETFCTA-016 / None
+
+## DEC-ETFCTA-018 — Enforce the first four GAL gates
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** GAL-001 defined controls and measurements but did not yet execute page-level governance or emit gate evidence.
+- **Decision:** Enforce content governance, reference integrity, editorial governance, and technical quality for every admitted public route before publication.
+- **Rationale:** Reference-corpus expansion remains unsafe until authored pages are evidence-linked, connected, bounded, and technically valid by construction.
+- **Consequences:** All 25 routes require content manifests; four gate reports emit measurements and stable violations; 14 adversarial fixtures must fail; Sprint 5 remains blocked pending 4C and 4D.
+- **Affected files:** `content/content-manifest.json`, `governance/*-STANDARD.md`, `validation/governance-gates.mjs`, `scripts/run-governance-gates.mjs`, `tests/governance-gate-suite.mjs`
+- **Evidence of implementation:** Four passing GAL artifacts, zero gate violations, and all negative fixtures rejected.
+- **Supersedes / superseded by:** Executes the Sprint 4B controls declared by DEC-ETFCTA-017 / None

@@ -4,12 +4,12 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node scripts/test.mjs",
-    "validate": "node scripts/check-governance-contract.mjs && node scripts/generate-public-data.mjs && node scripts/check-public-exports.mjs && node scripts/validate.mjs && node scripts/check-links.mjs",
+    "test": "node scripts/test.mjs && node tests/governance-gate-suite.mjs",
+    "validate": "node scripts/check-governance-contract.mjs && node scripts/run-governance-gates.mjs && node scripts/generate-public-data.mjs && node scripts/check-public-exports.mjs && node scripts/validate.mjs && node scripts/check-links.mjs",
     "generate:data": "node scripts/generate-public-data.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:exports": "node scripts/check-public-exports.mjs",
     "check:commit": "node scripts/validate-commit-message.mjs",
-    "check:governance": "node scripts/check-governance-contract.mjs"
+    "check:governance": "node scripts/check-governance-contract.mjs && node scripts/run-governance-gates.mjs"
   }
 }
