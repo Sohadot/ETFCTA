@@ -1,7 +1,11 @@
 {
-  "standard":"ECS-001",
-  "version":"0.1.0",
-  "rules":[],
-  "admission_note":"No classification rule is active until its definition, required evidence, result vocabulary, conflict behavior, and review window validate."
+  "standard":"ECS-001","version":"0.1.0",
+  "rules":[
+    {"rule_id":"ECS-MB-R01","version":"0.1.0","status":"active","dimension":"market_breadth","description":"Classifies explicit exposure confined to one governed asset family.","required_evidence_types":["primary_fund_document"],"minimum_sufficiency":{"min_admitted_evidence":1,"require_verified_sources":true,"require_preserved_sources":true,"require_exact_locator":true,"allow_unresolved_conflict":false},"result_vocabulary":["single_asset_family"],"conflict_behavior":"needs_review","review_window_id":"RW-ANNUAL-365"},
+    {"rule_id":"ECS-MB-R02","version":"0.1.0","status":"active","dimension":"market_breadth","description":"Classifies explicit exposure spanning two or more governed asset families.","required_evidence_types":["primary_fund_document"],"minimum_sufficiency":{"min_admitted_evidence":1,"require_verified_sources":true,"require_preserved_sources":true,"require_exact_locator":true,"allow_unresolved_conflict":false},"result_vocabulary":["multi_asset"],"conflict_behavior":"needs_review","review_window_id":"RW-ANNUAL-365"},
+    {"rule_id":"ECS-IR-R01","version":"0.1.0","status":"active","dimension":"implementation_route","description":"Classifies explicit direct futures implementation by the fund.","required_evidence_types":["primary_fund_document"],"minimum_sufficiency":{"min_admitted_evidence":1,"require_verified_sources":true,"require_preserved_sources":true,"require_exact_locator":true,"allow_unresolved_conflict":false},"result_vocabulary":["direct_futures"],"conflict_behavior":"needs_review","review_window_id":"RW-ANNUAL-365"},
+    {"rule_id":"ECS-IR-R02","version":"0.1.0","status":"active","dimension":"implementation_route","description":"Classifies explicit derivative exposure involving a controlled subsidiary.","required_evidence_types":["primary_fund_document"],"minimum_sufficiency":{"min_admitted_evidence":1,"require_verified_sources":true,"require_preserved_sources":true,"require_exact_locator":true,"allow_unresolved_conflict":false},"result_vocabulary":["derivatives_via_subsidiary"],"conflict_behavior":"needs_review","review_window_id":"RW-ANNUAL-365"},
+    {"rule_id":"ECS-SF-R01","version":"0.1.0","status":"active","dimension":"strategy_family","description":"Classifies an explicitly disclosed trend-following strategy.","required_evidence_types":["primary_fund_document"],"minimum_sufficiency":{"min_admitted_evidence":1,"require_verified_sources":true,"require_preserved_sources":true,"require_exact_locator":true,"allow_unresolved_conflict":false},"result_vocabulary":["explicit_trend_following"],"conflict_behavior":"needs_review","review_window_id":"RW-ANNUAL-365"}
+  ],
+  "admission_note":"These narrow founding rules are testable primitives, not complete coverage of ECS dimensions."
 }
-

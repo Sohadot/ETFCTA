@@ -14,7 +14,7 @@ Open `index.html` directly, or serve the repository with any static file server.
 node scripts/validate.mjs
 ```
 
-The validator checks the ECS specification, controlled vocabularies, ontology, glossary, admission history, source preservation, rule activation, sufficiency derivation, review windows, change continuity, and any future registry records without third-party dependencies.
+The validator applies the JSON Schema keywords used by this repository (`type`, `enum`, `const`, `pattern`, formats, collection bounds, nested properties, `oneOf`, and `anyOf`) and then checks ontology, glossary, admission history, source preservation, active rules, derived sufficiency, exact review windows, fund-decision ownership, and change continuity without third-party dependencies.
 
 ## Founding rule
 

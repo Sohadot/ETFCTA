@@ -19,5 +19,17 @@
     "trigger": {"type": "string", "minLength": 1},
     "source_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},
     "standard_version": {"type": "string", "pattern": "^ECS-001-v\\d+\\.\\d+\\.\\d+$"}
+    ,"correction_metadata": {
+      "type":"object","additionalProperties":false,
+      "required":["initiator","detected_at","published_at","public_explanation","downstream_effect","notification_required"],
+      "properties":{
+        "initiator":{"type":"string","minLength":1},
+        "detected_at":{"type":"string","format":"date-time"},
+        "published_at":{"type":"string","format":"date-time"},
+        "public_explanation":{"type":"string","minLength":1},
+        "downstream_effect":{"type":"string","minLength":1},
+        "notification_required":{"type":"boolean"}
+      }
+    }
   }
 }

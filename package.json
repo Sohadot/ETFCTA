@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node scripts/validate.mjs",
-    "validate": "node scripts/validate.mjs"
+    "test": "node scripts/test.mjs",
+    "validate": "node scripts/validate.mjs",
+    "check:commit": "node scripts/validate-commit-message.mjs"
   }
 }
-

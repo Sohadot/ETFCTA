@@ -1,8 +1,10 @@
 {
-  "version":"0.1.0",
-  "default_days":365,
-  "by_source_type":{"prospectus":365,"statement_of_additional_information":365,"shareholder_report":365,"n_port":120,"issuer_web_disclosure":90},
+  "version":"0.1.0","default_window_id":"RW-ANNUAL-365",
+  "windows":[
+    {"review_window_id":"RW-ANNUAL-365","days":365,"applies_to":["primary_fund_document","prospectus","statement_of_additional_information"]},
+    {"review_window_id":"RW-PERIODIC-120","days":120,"applies_to":["shareholder_report","n_port"]},
+    {"review_window_id":"RW-DYNAMIC-90","days":90,"applies_to":["issuer_web_disclosure"]}
+  ],
   "shorten_when":["known_source_supersession","conflicting_evidence","announced_strategy_change","rule_migration_required"],
   "rule":"The earliest applicable window governs. A known event may require immediate review."
 }
-
