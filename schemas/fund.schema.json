@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etfcta.example/schemas/fund.schema.json",
+  "title": "ETFCTA fund identity and current classifications",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "ticker", "legal_name", "jurisdiction", "exchange", "classification_standard", "classification_version", "last_reviewed", "next_review_due", "freshness_state", "dimensions"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
+    "ticker": {"type": "string", "pattern": "^[A-Z0-9.-]+$"},
+    "legal_name": {"type": "string", "minLength": 1},
+    "jurisdiction": {"type": "string", "minLength": 2},
+    "exchange": {"type": "string", "minLength": 1},
+    "classification_standard": {"const": "ECS-001"},
+    "classification_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "last_reviewed": {"type": "string", "format": "date"},
+    "next_review_due": {"type": "string", "format": "date"},
+    "freshness_state": {"enum": ["within_review_window", "review_due", "overdue"]},
+    "dimensions": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["value", "decision_id", "knowledge_state"], "properties": {"value": {"type": "string"}, "decision_id": {"type": "string", "pattern": "^DEC-[A-Z0-9-]+$"}, "knowledge_state": {"enum": ["confirmed_primary", "derived_ecs", "not_disclosed", "not_applicable", "conflicting_evidence"]}}}}
+  }
+}
+

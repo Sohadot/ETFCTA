@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ETFCTA is an open, evidence-linked classification registry for managed-futures ETFs.">
+  <title>ETFCTA — Verifiable classification memory</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ETFCTA home">ETF<span>CTA</span></a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Primary navigation">
+      <a href="#registry">Registry</a><a href="#specification">ECS-001</a><a href="#methods">Methods</a><a href="#independence">Independence</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <h1>Verifiable<br>classification memory.</h1>
+        <p>An open, evidence-linked record of what was classified, why it was classified, and when the decision must be reviewed.</p>
+        <div class="actions"><a class="button primary" href="spec/ECS-001-v0.1.0.md">Read ECS-001</a><a class="button" href="#architecture">Explore the architecture</a></div>
+      </div>
+      <div class="fingerprint" aria-labelledby="fingerprint-title">
+        <div class="module-head"><span id="fingerprint-title">Structural Fingerprint</span><span>Knowledge, not quality</span></div>
+        <div class="glyph-display" aria-hidden="true"><span>●</span><span>◐</span><span>○</span><span>×</span><span>!</span></div>
+        <div class="legend" role="list">
+          <button data-state="confirmed" class="active"><b>●</b><span>Confirmed from<br>primary source</span></button>
+          <button data-state="derived"><b>◐</b><span>Derived under<br>ECS-001</span></button>
+          <button data-state="undisclosed"><b>○</b><span>Not<br>disclosed</span></button>
+          <button data-state="na"><b>×</b><span>Not<br>applicable</span></button>
+          <button data-state="conflict"><b>!</b><span>Conflicting<br>evidence</span></button>
+        </div>
+        <p class="state-note" aria-live="polite">A direct statement located in a verified primary document.</p>
+      </div>
+    </section>
+    <section class="release" id="registry" aria-label="Registry release">
+      <dl><div><dt>Registry release</dt><dd>v0.1.0</dd></div><div><dt>Release date</dt><dd>18 July 2026</dd></div><div><dt>Funds included</dt><dd>0</dd></div><div><dt>Within review window</dt><dd>0</dd></div></dl>
+    </section>
+    <section class="section decision" id="methods">
+      <div class="section-intro"><h2>Every decision leaves a trail.</h2><p>A classification is publishable only when it answers five questions. The registry begins empty by design.</p></div>
+      <div class="table-wrap" tabindex="0"><table><thead><tr><th>Dimension</th><th>ECS rule</th><th>Primary evidence</th><th>Inference</th><th>Review due</th></tr></thead><tbody><tr class="empty"><td colspan="5"><span>○</span> No admitted decisions in the founding release</td></tr></tbody></table></div>
+    </section>
+    <section class="section history">
+      <div class="section-intro"><h2>Change is recorded as an event.</h2><p>Not a yearly snapshot. Every event distinguishes what changed from why our judgment changed.</p></div>
+      <ol class="timeline"><li><b>Fund changed</b><span>The underlying strategy or structure changed.</span></li><li><b>Disclosure changed</b><span>A source now describes the fund differently.</span></li><li><b>Evidence improved</b><span>Better evidence, without assuming a fund change.</span></li><li><b>Rule changed</b><span>A versioned ECS rule altered the result.</span></li><li><b>ETFCTA correction</b><span>Our prior record was wrong and is corrected publicly.</span></li></ol>
+    </section>
+    <section class="section tools">
+      <div class="section-intro"><h2>Useful on a cadence.</h2><p>Planned tools turn the registry into a recurring research surface while preserving its non-advisory boundary.</p></div>
+      <div class="cadence-tabs" role="tablist" aria-label="Tool cadence"><button role="tab" aria-selected="true" data-tab="daily">Daily</button><button role="tab" aria-selected="false" data-tab="weekly">Weekly</button><button role="tab" aria-selected="false" data-tab="reference">Reference</button></div>
+      <div class="tool-list" aria-live="polite"></div>
+    </section>
+    <section class="section architecture" id="architecture">
+      <div class="section-intro"><h2>Five records. One auditable chain.</h2><p>Identity, documents, observations, decisions, and change events remain independently updateable.</p></div>
+      <ol class="flow"><li><span>01</span><b>Fund identity</b></li><li><span>02</span><b>Source document</b></li><li><span>03</span><b>Evidence record</b></li><li><span>04</span><b>Classification decision</b></li><li><span>05</span><b>Change event</b></li></ol>
+    </section>
+    <section class="spec-cta" id="specification"><h2>A specification before a database.</h2><p>ECS-001 v0.1.0 defines states, source identity, quotation rules, decisions, and event-based history before the first real fund is admitted.</p><a class="button primary" href="spec/ECS-001-v0.1.0.md">Open the specification</a></section>
+  </main>
+  <footer id="independence"><div class="brand">ETF<span>CTA</span></div><p>Independent reference infrastructure. Not affiliated with, endorsed by, or operated by any ETF issuer.</p><p>Open specification · Static JSON · Human and machine readable</p></footer>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etfcta.example/schemas/change.schema.json",
+  "title": "ETFCTA classification change event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "fund_id", "effective_date", "recorded_at", "dimension", "previous_value", "new_value", "change_type", "trigger", "source_ids", "standard_version"],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^CHG-[A-Z0-9-]+$"},
+    "fund_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
+    "effective_date": {"type": "string", "format": "date"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "dimension": {"type": "string", "minLength": 1},
+    "previous_value": {"type": ["string", "null"]},
+    "new_value": {"type": ["string", "null"]},
+    "change_type": {"enum": ["fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]},
+    "trigger": {"type": "string", "minLength": 1},
+    "source_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},
+    "standard_version": {"type": "string", "pattern": "^ECS-001-v\\d+\\.\\d+\\.\\d+$"}
+  }
+}

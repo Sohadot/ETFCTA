@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etfcta.example/schemas/decision.schema.json",
+  "title": "ETFCTA classification decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision_id", "fund_id", "dimension", "result", "rule_id", "evidence_ids", "reasoning_summary", "decision_status", "confidence", "limitations", "decided_at", "review_due"],
+  "properties": {
+    "decision_id": {"type": "string", "pattern": "^DEC-[A-Z0-9-]+$"},
+    "fund_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
+    "dimension": {"type": "string", "minLength": 1},
+    "result": {"type": "string", "minLength": 1},
+    "rule_id": {"type": "string", "pattern": "^ECS-[A-Z0-9-]+$"},
+    "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^EVD-[A-Z0-9-]+$"}},
+    "reasoning_summary": {"type": "string", "minLength": 1},
+    "decision_status": {"enum": ["provisional", "confirmed", "needs_review", "withdrawn"]},
+    "confidence": {"enum": ["low", "moderate", "high"]},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "decided_at": {"type": "string", "format": "date"},
+    "review_due": {"type": "string", "format": "date"}
+  }
+}
+

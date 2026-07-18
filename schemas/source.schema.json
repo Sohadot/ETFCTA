@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etfcta.example/schemas/source.schema.json",
+  "title": "ETFCTA source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_id", "source_type", "title", "authority", "retrieved_at", "verification_status", "locator"],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"},
+    "source_type": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "issuer": {"type": "string"},
+    "authority": {"type": "string", "minLength": 1},
+    "effective_date": {"type": "string", "format": "date"},
+    "retrieved_at": {"type": "string", "format": "date"},
+    "filing_form": {"type": "string"},
+    "accession_number": {"type": "string"},
+    "document_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "verification_status": {"enum": ["unverified", "verified", "superseded", "withdrawn"]},
+    "locator": {"type": "object", "minProperties": 1}
+  }
+}
+

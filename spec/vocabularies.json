@@ -1,0 +1,9 @@
+{
+  "knowledge_states": ["confirmed_primary", "derived_ecs", "not_disclosed", "not_applicable", "conflicting_evidence"],
+  "verification_statuses": ["unverified", "verified", "superseded", "withdrawn"],
+  "evidence_statuses": ["direct_source", "corroborating_source", "conflicting", "insufficient"],
+  "decision_statuses": ["provisional", "confirmed", "needs_review", "withdrawn"],
+  "confidence_levels": ["low", "moderate", "high"],
+  "change_types": ["fund_changed", "disclosure_changed", "evidence_improved", "rule_changed", "correction"]
+}
+
