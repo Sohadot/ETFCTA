@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-07-18
+
+- Admitted KMLM as the sole canonical real fund.
+- Published five verified official sources, six admitted evidence records, five confirmed ECS decisions, and one explicit unknown state.
+- Added the KMLM dossier and traceable source/evidence page.
+- Added production rules for combined subsidiary implementation, long/short flexibility, and bounded signal-horizon non-disclosure.
+- No performance commentary, comparison, score, recommendation, or second fund was added.
+
 ## [0.2.0] — Release candidate
 
 - Adopted the Category Intelligence Charter and EAP-001.

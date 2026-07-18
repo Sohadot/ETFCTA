@@ -118,3 +118,16 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `protocol/release-gate.json`, `data/registry.json`, future `sources/KMLM/`, `evidence/KMLM/`, and dossier route.
 - **Evidence of implementation:** `9c57900`, green Sprint 0B gate and twelve negative tests.
 - **Supersedes / superseded by:** Supersedes the operational block in DEC-ETFCTA-008 while retaining its rule that fixture success alone cannot authorize publication / None
+
+## DEC-ETFCTA-010 — KMLM canonical fund admission
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Sprint 0C required one end-to-end real-fund admission without expanding coverage.
+- **Decision:** Admit and publish KMLM as ETFCTA's sole canonical real-fund record in release 0.3.0.
+- **Rationale:** Five verified official sources, six admitted evidence records, and five rule-bound decisions pass the production gate; signal horizon remains explicitly not determinable from reviewed sources.
+- **Alternatives considered:** Delay publication for a standalone index methodology; infer signal horizon from daily evaluation; add a second fund.
+- **Consequences:** The public registry contains one fund, one dossier, one evidence trail, and no comparison, performance claim, score, or recommendation.
+- **Affected files:** `data/registry.json`, `sources/KMLM/source-pack.json`, `funds/kmlm/`, `protocol/rules.json`, `protocol/release-gate.json`
+- **Evidence of implementation:** Release 0.3.0 gate and negative test suite.
+- **Supersedes / superseded by:** Completes the admission opened by DEC-ETFCTA-009 / None

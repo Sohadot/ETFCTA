@@ -1,0 +1,8 @@
+{
+  "fund_id":"ETFCTA-FUND-US-KMLM",
+  "admission_date":"2026-07-18",
+  "source_ids":["SRC-KMLM-PROSPECTUS-20260625","SRC-KMLM-SAI-20260625","SRC-KMLM-FUND-PAGE-20260718","SRC-KMLM-HOLDINGS-20260717","SRC-KMLM-SEC-METADATA-20260220"],
+  "methodology_status":"not_independently_located",
+  "methodology_note":"The statutory prospectus contains the admitted KFA MLM Index methodology description. No standalone official index methodology document was located, so none is represented as a source.",
+  "canonical_records":"../../data/registry.json"
+}

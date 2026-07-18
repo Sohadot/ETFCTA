@@ -1,9 +1,9 @@
 {
   "gate_id":"ETFCTA-RELEASE-GATE-0B",
   "version":"0.1.0",
-  "required_checks":["schema_validity","unique_ids","referential_integrity","source_identity","source_preservation","bounded_evidence","admission_history","active_rule","evidence_sufficiency","review_window","decision_status_derivation","decision_roles","fund_decision_ownership","append_only_change","standard_version","protocol_version","canonical_fixture","negative_tests"],
-  "sprint_0c_status":"open_canonical_admission_kmlm_only",
-  "production_admission_authorized":false,
-  "next_sprint":"0C",
+  "required_checks":["canonical_real_admission","schema_validity","unique_ids","referential_integrity","source_identity","source_preservation","bounded_evidence","admission_history","active_rule","evidence_sufficiency","review_window","decision_status_derivation","decision_roles","fund_decision_ownership","append_only_change","standard_version","protocol_version","canonical_fixture","negative_tests"],
+  "sprint_0c_status":"canonical_admission_published",
+  "production_admission_authorized":true,
+  "next_sprint":"post_0C",
   "next_sprint_unlocked_when":"All checks pass for the canonical fund admission fixture and no prohibited placeholder facts exist."
 }

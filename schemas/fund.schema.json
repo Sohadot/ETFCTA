@@ -9,6 +9,10 @@
     "record_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
     "ticker": {"type": "string", "pattern": "^[A-Z0-9.-]+$"},
     "legal_name": {"type": "string", "minLength": 1},
+    "issuer": {"type": "string", "minLength": 1},
+    "inception_date": {"type": "string", "format": "date"},
+    "identifiers": {"type":"object", "additionalProperties":{"type":"string"}},
+    "identity_source_ids": {"type":"array", "minItems":1, "uniqueItems":true, "items":{"type":"string", "pattern":"^SRC-[A-Z0-9-]+$"}},
     "jurisdiction": {"type": "string", "minLength": 2},
     "exchange": {"type": "string", "minLength": 1},
     "classification_standard": {"const": "ECS-001"},
@@ -19,4 +23,3 @@
     "dimensions": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["value", "decision_id", "knowledge_state"], "properties": {"value": {"type": "string"}, "decision_id": {"type": "string", "pattern": "^DEC-[A-Z0-9-]+$"}, "knowledge_state": {"enum": ["confirmed_primary", "derived_ecs", "not_disclosed", "not_applicable", "conflicting_evidence"]}}}}
   }
 }
-

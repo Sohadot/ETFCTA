@@ -22,7 +22,7 @@ export function deriveSufficiency(decision, registry, rule) {
 
 export function validateRegistry({ registry, schemas, rules, reviewWindows, vocab, ontology, glossary, releaseGate, fixturePassed = false, negativeTestsPassed = false }) {
   const checkNames = releaseGate.required_checks;
-  const implemented = ['schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','decision_roles','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
+  const implemented = ['canonical_real_admission','schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','decision_roles','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
   const checks = Object.fromEntries(implemented.map((name) => [name, makeCheck()]));
   const collections = { fund: registry.funds, source: registry.sources, evidence: registry.evidence, decision: registry.decisions, change: registry.changes };
   const idField = { fund:'record_id', source:'source_id', evidence:'evidence_id', decision:'decision_id', change:'event_id' };
@@ -47,6 +47,12 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
   push(checks, 'standard_version', new Set(glossary.terms.map((term) => term.term_id)).size === glossary.terms.length, 'Glossary IDs must be unique.');
 
   const ids = new Map();
+  const productionAdmission = registry.registry_id === 'ETFCTA';
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.funds.length === 1 && registry.funds[0]?.ticker === 'KMLM', 'Sprint 0C must publish exactly one real fund: KMLM.');
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.sources.filter((s) => s.verification_status === 'verified').length >= 4, 'KMLM requires at least four verified primary sources.');
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.evidence.filter((e) => e.admission?.state === 'admitted').length >= 5, 'KMLM requires at least five admitted evidence records.');
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.decisions.filter((d) => d.decision_status === 'confirmed').length >= 3, 'KMLM requires at least three confirmed decisions.');
+  push(checks, 'canonical_real_admission', !productionAdmission || registry.funds.some((f) => Object.values(f.dimensions).some((d) => ['not_disclosed','not_applicable'].includes(d.knowledge_state))), 'KMLM requires an explicit unknown state.');
   for (const [kind, records] of Object.entries(collections)) for (const record of records ?? []) {
     const id = record[idField[kind]];
     push(checks, 'unique_ids', Boolean(id) && !ids.has(id), `Duplicate or missing ${kind} ID: ${id ?? '(missing)'}.`); ids.set(id, kind);

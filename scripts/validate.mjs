@@ -22,6 +22,6 @@ for (const name of context.releaseGate.required_checks) {
   console.log(`${check?.passed ? 'PASS' : 'FAIL'} ${name}`);
   for (const error of check?.errors ?? []) console.log(`  - ${error}`);
 }
-console.log(context.releaseGate.sprint_0c_status === 'blocked' ? 'BLOCKED Sprint 0C — production admission remains unauthorized.' : 'Sprint 0C status requires review.');
+console.log(context.releaseGate.production_admission_authorized ? 'AUTHORIZED Sprint 0C — canonical KMLM admission published.' : 'BLOCKED Sprint 0C — production admission remains unauthorized.');
 if (!report.passed) process.exit(1);
-console.log('ETFCTA Sprint 0B executable admission gate passed. Public registry remains empty.');
+console.log('ETFCTA release 0.3.0 gate passed. Public registry contains exactly one fund: KMLM.');
