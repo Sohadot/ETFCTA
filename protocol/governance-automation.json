@@ -1,0 +1,19 @@
+{
+  "contract_id": "GAL-001",
+  "version": "0.1.0",
+  "fail_closed": true,
+  "gate_order": ["content_governance", "reference_integrity", "knowledge_consistency", "evidence_governance", "ontology_governance", "editorial_governance", "technical_quality", "security_supply_chain", "release_governance"],
+  "allowed_states": ["enforced", "partial", "planned"],
+  "required_report_fields": ["contract_version", "gate_id", "checker_version", "commit_sha", "evaluated_at", "result", "metrics", "violations", "artifact_path"],
+  "gates": [
+    {"id":"content_governance","sprint":"4B","state":"planned","owner_role":"Evidence Reviewer","checks":["claim_type","claim_evidence_link","evidence_source_link","quote_locator","review_date","known_limitations"],"metrics":["claims_linked_to_evidence_pct","quotes_with_locator_pct","pages_with_review_date_pct","pages_with_known_limitations_pct"]},
+    {"id":"reference_integrity","sprint":"4B","state":"partial","owner_role":"Publisher","checks":["internal_links","external_links","canonical","json_ld","sitemap","llms_txt","entity_ids","citation_ids","orphan_pages"],"metrics":["broken_internal_links_count","broken_external_links_count","orphan_pages_count","canonical_compliance_pct","structured_data_compliance_pct"]},
+    {"id":"knowledge_consistency","sprint":"4C","state":"planned","owner_role":"Classification Reviewer","checks":["duplicate_definitions","ecs_alignment","glossary_ontology_alignment","approved_terms","definition_change_log"],"metrics":["duplicate_definitions_count","unknown_terms_count","unlogged_definition_changes_count"]},
+    {"id":"evidence_governance","sprint":"4D","state":"partial","owner_role":"Evidence Reviewer","checks":["sha256","freshness","source_version","link_review","source_identity","primary_source_requirement"],"metrics":["hash_compliance_pct","freshness_compliance_pct","identified_sources_pct","primary_claim_source_compliance_pct"]},
+    {"id":"ontology_governance","sprint":"4C","state":"planned","owner_role":"Classification Reviewer","checks":["defined_terms","allowed_relationships","entity_rename_migration","relationship_integrity"],"metrics":["undefined_terms_count","invalid_relationships_count","unmigrated_entity_renames_count"]},
+    {"id":"editorial_governance","sprint":"4B","state":"planned","owner_role":"Editorial Reviewer","checks":["marketing_language","investment_recommendation","overstatement","boundary_clarity","reference_structure"],"metrics":["prohibited_language_violations_count","incomplete_reference_structures_count"]},
+    {"id":"technical_quality","sprint":"4B","state":"partial","owner_role":"Publisher","checks":["html_validation","accessibility","performance_budget","css_integrity","javascript_integrity","structured_data","console_errors"],"metrics":["html_errors_count","accessibility_violations_count","performance_budget_breaches_count","console_errors_count"]},
+    {"id":"security_supply_chain","sprint":"4D","state":"planned","owner_role":"Publisher","checks":["dependency_audit","integrity","secret_scan","commit_signature","license_validation","reference_hashes"],"metrics":["known_vulnerabilities_count","detected_secrets_count","unapproved_licenses_count","reference_hash_failures_count"]},
+    {"id":"release_governance","sprint":"4D","state":"partial","owner_role":"Publisher","checks":["all_blocking_gates","decision_log","changelog","release_archive","version_consistency","schema_compatibility","data_site_release"],"metrics":["blocking_gates_passed_pct","version_mismatches_count","missing_release_artifacts_count"]}
+  ]
+}

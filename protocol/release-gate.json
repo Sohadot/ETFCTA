@@ -10,7 +10,9 @@
   "domain_runtime_verified":false,
   "sprint_2_status":"category_memory_published",
   "sprint_3_status":"evidence_intelligence_published",
+  "sprint_4a_status":"governance_automation_charter_ratified",
+  "governance_automation_contract":"GAL-001-v0.1.0",
   "production_admission_authorized":true,
-  "next_sprint":"post_Sprint_3",
-  "next_sprint_unlocked_when":"Sprint 3 evidence exports, governed challenge route, schema validation, negative tests, and public link checks all pass."
+  "next_sprint":"Sprint_4B",
+  "next_sprint_unlocked_when":"GAL-001 contract validation and the existing release gate both pass."
 }

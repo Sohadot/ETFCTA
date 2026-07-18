@@ -1,5 +1,11 @@
 # Changelog
 
+## Sprint 4A — Governance Automation Charter — 2026-07-18
+
+- Ratified GAL-001 and the rule that no knowledge enters the corpus outside governance.
+- Added a machine-readable contract for nine ordered gates and 32 non-scoring operational metrics.
+- Added fail-closed contract validation while preserving honest `partial` and `planned` implementation states.
+
 ## Sprint 3 — Evidence Intelligence — 2026-07-18
 
 - Corrected memory initialization timestamps to the actual creation commit time and added explicit batch, sequence, recording-mode, site-release, and decision-origin metadata.

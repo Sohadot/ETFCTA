@@ -207,3 +207,15 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `evidence-status/`, `methodology-gaps/`, `sources/`, `evidence-challenge/`, `data/evidence-status.json`, `data/methodology-gaps.json`
 - **Evidence of implementation:** Public export boundary, evidence pages, machine exports, and challenge workflow.
 - **Supersedes / superseded by:** Opens Sprint 3 after corrected category-memory initialization / None
+
+## DEC-ETFCTA-017 — Establish the Governance Automation Layer
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Expanding the reference corpus before its production controls are stable would multiply later review and migration risk.
+- **Decision:** Establish GAL-001 as the mandatory, fail-closed control plane for all future public knowledge and deliver it through Sprints 4A–4D before Sprint 5 corpus expansion.
+- **Rationale:** Knowledge quality must be produced by a governed system, not recovered through retrospective cleanup.
+- **Consequences:** Nine ordered gates have stable IDs, owners, delivery sprints, checks, and measurable outputs. Planned controls cannot be reported as executed or passed.
+- **Affected files:** `governance/GOVERNANCE_AUTOMATION_CHARTER.md`, `protocol/governance-automation.json`, `scripts/check-governance-contract.mjs`, `protocol/release-gate.json`
+- **Evidence of implementation:** Executable contract check covering all nine layers and their declared metrics.
+- **Supersedes / superseded by:** Opens Sprint 4A after DEC-ETFCTA-016 / None
