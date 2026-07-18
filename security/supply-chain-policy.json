@@ -1,0 +1,3 @@
+{
+  "version":"0.1.0","allowed_external_runtime_dependencies":[],"allowed_package_dependencies":[],"shell_execution_allowlist":["scripts/release.mjs"],"github_actions_require_sha_pin":true,"github_actions_default_permissions":"read-only","commit_signature_policy":"not_measured_non_blocking"
+}

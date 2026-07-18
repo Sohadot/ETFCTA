@@ -1,0 +1,24 @@
+import {evidenceGovernanceGate,securitySupplyChainGate,releaseGovernanceGate} from '../validation/governance-gates.mjs';
+const source={source_id:'SRC-TEST',authority:'Official',retrieved_at:'2026-07-18',document_sha256:'a'.repeat(64),verification_status:'verified',source_type:'primary_fund_document',locator:{url:'https://example.com/source'},preservation:{status:'preserved',document_sha256:'a'.repeat(64)}};
+const registry={sources:[source],evidence:[{evidence_id:'EVD-TEST',source_id:'SRC-TEST',admission:{state:'admitted'}}],decisions:[{decision_id:'DEC-TEST',decision_status:'confirmed',evidence_ids:['EVD-TEST']}]}; const links={observations:[{source_id:'SRC-TEST',status:'reachable',newer_version_status:'not_determined'}]};
+const policy={allowed_package_dependencies:[]}; const licenses={categories:['repository_code','ecs_specification','ontology_and_governance','published_data','third_party_excerpts','images_and_fonts'].map(category=>({category,license_status:'declared'}))};
+const contract={contract_id:'GAL-001',version:'0.1.0',gate_order:['content_governance','reference_integrity','knowledge_consistency','evidence_governance','ontology_governance','editorial_governance','technical_quality','security_supply_chain','release_governance'],gates:[]}; contract.gates=contract.gate_order.map(id=>({id,state:'enforced'})); const releaseGate={governance_automation_contract:'GAL-001-v0.1.0',required_gal_gates:[...contract.gate_order]}; const routeManifest={site_release:'1.5.0',data_release:'0.4.0'}; const hashes=Object.fromEntries(contract.gate_order.slice(0,-1).map(id=>[id,'a'.repeat(64)])); const subjectCommitSha='c'.repeat(40); const versions={validator:'0.1.0',schemas:'current',terms:'0.1.0',claims:'0.1.0',relationships:'0.1.0',evidence_standard:'EVS-001-v0.1.0',security_standard:'SSS-001-v0.1.0',release_standard:'RGS-001-v0.1.0'}; const attestation={site_release:'1.5.0',data_release:'0.4.0',subject_commit_sha:subjectCommitSha,gal_contract:'GAL-001-v0.1.0',versions,integrity_manifest_sha256:'b'.repeat(64),artifact_hashes:hashes,gate_results:Object.fromEntries(contract.gate_order.map(id=>[id,'pass']))};
+const evidence=(overrides={})=>evidenceGovernanceGate({registry,externalLinks:links,...overrides}); const security=(overrides={})=>securitySupplyChainGate({files:{},publicFiles:{},packageJson:{},policy,licenses,integrityFailures:[],workflows:[],...overrides}); const release=(overrides={})=>releaseGovernanceGate({contract,releaseGate,routeManifest,changelog:'Site 1.5.0',decisionLog:'DEC-ETFCTA-020',releaseArchive:'present',attestation,artifactHashes:hashes,integrityManifestHash:'b'.repeat(64),subjectCommitSha,...overrides});
+const cases=[
+['hash mismatch','EVS-R01',()=>{const value=structuredClone(registry);value.sources[0].preservation.document_sha256='b'.repeat(64);return evidence({registry:value});}],
+['admitted evidence from unverified source','EVS-R02',()=>{const value=structuredClone(registry);value.sources[0].verification_status='unverified';return evidence({registry:value});}],
+['superseded source without justification','EVS-R03',()=>{const value=structuredClone(registry);value.sources[0].verification_status='superseded';return evidence({registry:value});}],
+['stale source','EVS-R04',()=>{const value=structuredClone(registry);value.sources[0].retrieved_at='2024-01-01';return evidence({registry:value});}],
+['dead external link','EVS-R06',()=>evidence({externalLinks:{observations:[{source_id:'SRC-TEST',status:'dead',newer_version_status:'not_determined'}]}})],
+['secret-like token','SSS-R01',()=>security({files:{'x.txt':`token='${'x'.repeat(20)}'`}})],
+['unapproved dependency','SSS-R02',()=>security({packageJson:{dependencies:{leftpad:'1.0.0'}}})],
+['unknown license','SSS-R03',()=>{const value=structuredClone(licenses);value.categories[0].license_status='unknown';return security({licenses:value});}],
+['unpinned GitHub Action','SSS-R05',()=>security({workflows:[['.github/workflows/ci.yml','permissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@v4']]})],
+['missing changelog','RGS-R03',()=>release({changelog:''})],
+['missing release archive','RGS-R03',()=>release({releaseArchive:null})],
+['version mismatch','RGS-R02',()=>release({routeManifest:{site_release:'1.5.1',data_release:'0.4.0'}})],
+['missing attestation','RGS-R03',()=>release({attestation:null})],
+['artifact hash mismatch','RGS-R04',()=>release({artifactHashes:{...hashes,content_governance:'c'.repeat(64)}})],
+['gate not_run','RGS-R05',()=>release({attestation:{...attestation,gate_results:{...attestation.gate_results,evidence_governance:'not_run'}}})]
+];
+let failed=false;for(const [name,rule,run] of cases){const found=run().violations.some(x=>x.rule_id===rule);console.log(`${found?'PASS':'FAIL'} rejects ${name} (${rule})`);failed||=!found;}if(failed)process.exit(1);

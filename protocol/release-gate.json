@@ -13,9 +13,11 @@
   "sprint_4a_status":"governance_automation_charter_ratified",
   "sprint_4b_status":"executable_quality_integrity_gates_enforced",
   "sprint_4c_status":"knowledge_consistency_ontology_enforced",
+  "sprint_4d_status":"nine_gates_enforced_attestation_required",
   "governance_automation_contract":"GAL-001-v0.1.0",
-  "required_gal_gates":["content_governance","reference_integrity","knowledge_consistency","ontology_governance","editorial_governance","technical_quality"],
+  "required_gal_gates":["content_governance","reference_integrity","knowledge_consistency","evidence_governance","ontology_governance","editorial_governance","technical_quality","security_supply_chain","release_governance"],
   "production_admission_authorized":true,
-  "next_sprint":"Sprint_4D",
-  "next_sprint_unlocked_when":"Knowledge consistency and ontology governance emit passing GAL artifacts and all semantic negative fixtures are rejected."
+  "reference_corpus_expansion_status":"blocked_until_committed_attestation_for_site_1.5.0",
+  "next_sprint":"Sprint_5_when_condition_satisfied",
+  "next_sprint_unlocked_when":"All nine gates pass and the generated site 1.5.0 attestation is committed immediately after its subject release commit."
 }

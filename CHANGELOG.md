@@ -1,5 +1,13 @@
 # Changelog
 
+## Sprint 4D — Evidence, Security, Release and Metrics — site release 1.5.0 — 2026-07-18
+
+- Enforced evidence governance, security and supply-chain, and release governance to complete all nine GAL gates.
+- Added live external-link observations with redirect, rate-limit, temporary-failure, dead, and reachable states; dead links block release.
+- Added source-hash, verification, freshness, withdrawal, supersession, and primary-claim-source controls.
+- Added secret, local-path, dependency, license, workflow pinning, shell review, and governed-file integrity controls while keeping commit signatures explicitly not measured.
+- Added one-command release verification, immutable attestation generation, a site 1.5.0 release archive, and 15 release/security/evidence negative fixtures.
+
 ## Sprint 4C — Knowledge Consistency and Ontology Enforcement — 2026-07-18
 
 - Enforced canonical definition, definition-lock, glossary alignment, claim derivation, page-specific limitation, entity, and relationship controls.

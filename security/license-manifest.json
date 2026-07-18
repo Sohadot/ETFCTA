@@ -1,0 +1,12 @@
+{
+  "version":"0.1.0","reviewed_at":"2026-07-18",
+  "categories":[
+    {"category":"repository_code","scope":["assets/","scripts/","validation/","tests/"],"license_status":"all_rights_reserved_no_public_license"},
+    {"category":"ecs_specification","scope":["spec/"],"license_status":"all_rights_reserved_no_public_license"},
+    {"category":"ontology_and_governance","scope":["knowledge/","reference/","governance/","protocol/","schemas/"],"license_status":"all_rights_reserved_no_public_license"},
+    {"category":"published_data","scope":["data/"],"license_status":"all_rights_reserved_no_public_license"},
+    {"category":"third_party_excerpts","scope":[],"license_status":"not_distributed_paraphrase_only"},
+    {"category":"images_and_fonts","scope":[],"license_status":"none_distributed"}
+  ],
+  "unknown_assets_prohibited":true
+}

@@ -17,6 +17,7 @@
     "accession_number": {"type": "string"},
     "document_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "verification_status": {"enum": ["unverified", "verified", "superseded", "withdrawn"]},
+    "supersession_justification": {"type": "string", "minLength": 1},
     "locator": {"type": "object", "minProperties": 1},
     "preservation": {
       "type":"object", "additionalProperties":false,

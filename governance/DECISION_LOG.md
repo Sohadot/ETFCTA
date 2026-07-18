@@ -243,3 +243,15 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Affected files:** `knowledge/`, `governance/KNOWLEDGE-CONSISTENCY-STANDARD.md`, `governance/ONTOLOGY-GOVERNANCE-STANDARD.md`, `validation/governance-gates.mjs`, `tests/semantic-gate-suite.mjs`
 - **Evidence of implementation:** Six passing enforced GAL gates, eight rejected semantic fixtures, and a committed site 1.3.0 attestation.
 - **Supersedes / superseded by:** Executes Sprint 4C under DEC-ETFCTA-017 / None
+
+## DEC-ETFCTA-020 — Complete GAL with reproducible release attestation
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** Six enforced gates protected content and meaning, but source reachability, supply-chain integrity, and release attestation still depended on manual execution.
+- **Decision:** Enforce EVS-001, SSS-001, and RGS-001 and require `release:verify` as the only release path.
+- **Rationale:** Corpus expansion requires evidence freshness, technical provenance, and a release claim cryptographically bound to one immutable content commit.
+- **Consequences:** All nine GAL gates block release; external link states are measured; governed files and gate artifacts are hashed; site attestations reference a release-content commit and are stored in the immediately following attestation commit.
+- **Affected files:** `governance/*STANDARD.md`, `security/`, `integrity/`, `scripts/release.mjs`, `scripts/check-external-links.mjs`, `tests/release-gate-suite.mjs`
+- **Evidence of implementation:** Nine passing gate reports, 15 rejected 4D fixtures, integrity verification, and committed site 1.5.0 attestation.
+- **Supersedes / superseded by:** Completes Sprints 4A–4D under DEC-ETFCTA-017 / None
