@@ -4,7 +4,7 @@
   "title": "ETFCTA classification decision",
   "type": "object",
   "additionalProperties": false,
-  "required": ["decision_id", "fund_id", "dimension", "result", "rule_id", "rule_version", "evidence_ids", "reasoning_summary", "decision_status", "confidence", "sufficiency_result", "limitations", "decided_at", "review_due"],
+  "required": ["decision_id", "fund_id", "dimension", "result", "rule_id", "rule_version", "evidence_ids", "reasoning_summary", "decision_status", "confidence", "sufficiency_result", "limitations", "decided_at", "review_due", "workflow"],
   "properties": {
     "decision_id": {"type": "string", "pattern": "^DEC-[A-Z0-9-]+$"},
     "fund_id": {"type": "string", "pattern": "^ETFCTA-FUND-[A-Z0-9-]+$"},
@@ -19,6 +19,16 @@
     "sufficiency_result":{"enum":["pass","conditional","fail","conflict"]},
     "limitations": {"type": "array", "items": {"type": "string"}},
     "decided_at": {"type": "string", "format": "date"},
-    "review_due": {"type": "string", "format": "date"}
+    "review_due": {"type": "string", "format": "date"},
+    "workflow": {
+      "type":"object","additionalProperties":false,
+      "required":["actions","solo_operator","second_review_required","second_review_completed"],
+      "properties":{
+        "actions":{"type":"array","minItems":4,"items":{"type":"object","additionalProperties":false,"required":["role","actor_id","acted_at","conflict_status"],"properties":{"role":{"enum":["extractor","classifier","reviewer","publisher","corrector"]},"actor_id":{"type":"string","pattern":"^ACT-[A-Z0-9-]+$"},"acted_at":{"type":"string","format":"date-time"},"conflict_status":{"enum":["none_declared","disclosed_not_recused","recused"]}}}},
+        "solo_operator":{"type":"boolean"},
+        "second_review_required":{"type":"boolean"},
+        "second_review_completed":{"type":"boolean"}
+      }
+    }
   }
 }

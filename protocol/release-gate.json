@@ -1,7 +1,7 @@
 {
   "gate_id":"ETFCTA-RELEASE-GATE-0B",
   "version":"0.1.0",
-  "required_checks":["schema_validity","unique_ids","referential_integrity","source_identity","source_preservation","bounded_evidence","admission_history","active_rule","evidence_sufficiency","review_window","decision_status_derivation","fund_decision_ownership","append_only_change","standard_version","protocol_version","canonical_fixture","negative_tests"],
+  "required_checks":["schema_validity","unique_ids","referential_integrity","source_identity","source_preservation","bounded_evidence","admission_history","active_rule","evidence_sufficiency","review_window","decision_status_derivation","decision_roles","fund_decision_ownership","append_only_change","standard_version","protocol_version","canonical_fixture","negative_tests"],
   "sprint_0c_status":"blocked",
   "production_admission_authorized":false,
   "next_sprint":"0C",

@@ -6,6 +6,8 @@
   "classification_version": "0.1.0",
   "evidence_protocol": "EAP-001",
   "evidence_protocol_version": "0.1.0",
+  "schema_version": "0.2.0-rc.1",
+  "validator_version": "0.2.0-rc.1",
   "funds": [],
   "sources": [],
   "evidence": [],

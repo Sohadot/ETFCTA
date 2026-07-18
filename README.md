@@ -4,6 +4,14 @@ ETFCTA is the governed category intelligence source for managed-futures ETF stru
 
 The [Category Intelligence Charter](governance/CATEGORY-INTELLIGENCE-CHARTER.md) has precedence over individual sprints, routes, tools, and commercial surfaces.
 
+Institutional memory is separated by purpose:
+
+- [Decision Log](governance/DECISION_LOG.md) explains why sovereign choices were made.
+- [Changelog](CHANGELOG.md) records what changed.
+- [Release Index](releases/RELEASE_INDEX.md) records what was actually published or remains a candidate.
+- [Known Limitations](governance/KNOWN_LIMITATIONS.md) and [Risk Register](governance/RISK_REGISTER.md) state current boundaries and threats.
+- [Transparency Register](governance/TRANSPARENCY-AND-DISCLOSURE-REGISTER.md) records current operational disclosures.
+
 ## Run locally
 
 Open `index.html` directly, or serve the repository with any static file server.

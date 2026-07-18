@@ -20,6 +20,8 @@ export async function runFixtureSuite(context, root) {
     ,['wrong field type', 'schema_validity', (r) => { r.funds[0].ticker=42; }]
     ,['undeclared nested field', 'schema_validity', (r) => { r.funds[0].dimensions.market_breadth.score=9; }]
     ,['malformed identifier', 'schema_validity', (r) => { r.evidence[0].evidence_id='bad id'; }]
+    ,['missing reviewer role', 'decision_roles', (r) => { r.decisions[0].workflow.actions=r.decisions[0].workflow.actions.filter((action)=>action.role!=='reviewer'); }]
+    ,['required second review incomplete', 'decision_roles', (r) => { r.decisions[0].workflow.second_review_required=true; }]
   ];
   const results = cases.map(([name, expectedCheck, mutate]) => {
     const registry=clone(valid); mutate(registry); const report=run(registry);

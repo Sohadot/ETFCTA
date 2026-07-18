@@ -22,7 +22,7 @@ export function deriveSufficiency(decision, registry, rule) {
 
 export function validateRegistry({ registry, schemas, rules, reviewWindows, vocab, ontology, glossary, releaseGate, fixturePassed = false, negativeTestsPassed = false }) {
   const checkNames = releaseGate.required_checks;
-  const implemented = ['schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
+  const implemented = ['schema_validity','unique_ids','referential_integrity','source_identity','source_preservation','bounded_evidence','admission_history','active_rule','evidence_sufficiency','review_window','decision_status_derivation','decision_roles','fund_decision_ownership','append_only_change','standard_version','protocol_version','canonical_fixture','negative_tests'];
   const checks = Object.fromEntries(implemented.map((name) => [name, makeCheck()]));
   const collections = { fund: registry.funds, source: registry.sources, evidence: registry.evidence, decision: registry.decisions, change: registry.changes };
   const idField = { fund:'record_id', source:'source_id', evidence:'evidence_id', decision:'decision_id', change:'event_id' };
@@ -36,6 +36,7 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
 
   push(checks, 'standard_version', registry.classification_standard === rules.standard && registry.classification_version === rules.version, 'Registry and rule standard versions must agree.');
   push(checks, 'protocol_version', registry.evidence_protocol === 'EAP-001' && registry.evidence_protocol_version === '0.1.0', 'Active evidence protocol is invalid.');
+  push(checks, 'standard_version', Boolean(registry.schema_version && registry.validator_version), 'Registry must declare schema and validator versions.');
   push(checks, 'active_rule', rules.rules.some((rule) => rule.status === 'active'), 'At least one active ECS rule is required.');
   push(checks, 'active_rule', new Set(rules.rules.map((rule) => `${rule.rule_id}@${rule.version}`)).size === rules.rules.length, 'Rule IDs and versions must be unique.');
   for (const rule of rules.rules) {
@@ -82,6 +83,10 @@ export function validateRegistry({ registry, schemas, rules, reviewWindows, voca
       const window = reviewWindows.windows.find((item) => item.review_window_id === rule.review_window_id);
       if (window) push(checks, 'review_window', decision.review_due === addDays(decision.decided_at, window.days), `${decision.decision_id}: review_due must equal ${addDays(decision.decided_at, window.days)}.`);
     }
+    const actions=decision.workflow?.actions ?? [];
+    for(const role of ['extractor','classifier','reviewer','publisher']) push(checks,'decision_roles',actions.some((action)=>action.role===role),`${decision.decision_id}: missing ${role} action.`);
+    push(checks,'decision_roles',!decision.workflow?.second_review_required || decision.workflow?.second_review_completed,`${decision.decision_id}: required second review is incomplete.`);
+    push(checks,'decision_roles',!actions.some((action)=>action.conflict_status==='recused' && ['reviewer','publisher'].includes(action.role)),`${decision.decision_id}: recused actor cannot review or publish.`);
   }
   for (const fund of registry.funds) for (const [dimension, pointer] of Object.entries(fund.dimensions)) {
     const decision = registry.decisions.find((item) => item.decision_id === pointer.decision_id);
