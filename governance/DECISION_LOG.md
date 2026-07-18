@@ -106,3 +106,15 @@ This log records sovereign product, standard, evidence, publication, and indepen
 - **Evidence of implementation:** `c7bbde9` plus current release governance.
 - **Supersedes / superseded by:** None / None
 
+## DEC-ETFCTA-009 — Sprint 0B closed; canonical admission opened
+
+- **Date:** 2026-07-18
+- **Status:** Ratified
+- **Context:** The executable gate, active rules, derived sufficiency, review windows, decision roles, canonical fixture, and negative tests all pass.
+- **Decision:** Close Sprint 0B and open Sprint 0C for one canonical real fund only: KMLM.
+- **Rationale:** A single bounded admission is the smallest test of the complete real-world chain.
+- **Alternatives considered:** Broader registry import; DBMF-first admission; remaining indefinitely on synthetic fixtures.
+- **Consequences:** Research is limited to KMLM; production publication remains unauthorized until the complete real-fund gate passes.
+- **Affected files:** `protocol/release-gate.json`, `data/registry.json`, future `sources/KMLM/`, `evidence/KMLM/`, and dossier route.
+- **Evidence of implementation:** `9c57900`, green Sprint 0B gate and twelve negative tests.
+- **Supersedes / superseded by:** Supersedes the operational block in DEC-ETFCTA-008 while retaining its rule that fixture success alone cannot authorize publication / None

@@ -9,7 +9,8 @@ Last reviewed: 18 July 2026
 | Current development candidate | v0.2.0 executable admission gate; not a production fund release |
 | ECS | 0.1.0 |
 | EAP | 0.1.0 |
-| Production admission | Not authorized; Sprint 0C blocked |
+| Sprint status | Sprint 0B closed; Sprint 0C research open for KMLM only |
+| Production admission | Not authorized pending the complete KMLM release gate |
 | Funds / sources / evidence / decisions / changes | 0 / 0 / 0 / 0 / 0 |
 | Sponsorships | None recorded |
 | Relevant commercial contracts | None recorded |
@@ -20,4 +21,3 @@ Last reviewed: 18 July 2026
 | Ownership changes | None recorded |
 
 Unknown operator detail is disclosed as unknown rather than inferred. This register MUST be updated before any sponsorship, relevant paid research, production admission, material automation, operator/ownership change, or public correction.
-
